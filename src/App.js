@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route} from 'react-router-dom';
+import Nav from './Nav/Nav';
+import Header from './Header/Header';
+import SmallForm from './SmallForm/SmallForm';
+import List from './List/List';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Route path='/' component={Nav} />
+        <header className="App-header">
+        <Route path='/' component={Header} />
+        </header>
+        <main>
+          <Route path='/' component={SmallForm} />
+          <Route path='/' component={List} />
+        </main>
+      </div>
+    );
+  }
+  
 }
 
-export default App;
+
