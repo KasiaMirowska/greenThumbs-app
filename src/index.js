@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
-
+import {GreenContextProvider} from './Context';
 
 ReactDOM.render(
     // <Errors>
     <BrowserRouter>
-        <App />
+        <GreenContextProvider>
+            <App />
+        </GreenContextProvider>
     </BrowserRouter>,
     // </Errors>  
 
