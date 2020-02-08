@@ -48,8 +48,10 @@ export default class Checkboxes extends React.Component {
                 newFolder: false,
             })
             e.target.reset();
+            this.props.history.push('/')
         } else {
             this.context.addPlaceToFolder(placeId, this.state.pickedFolder)
+            this.props.history.push('/')
         }
     }
 

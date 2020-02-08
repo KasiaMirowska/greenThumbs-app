@@ -20,7 +20,6 @@ constructor(){
         
         ProxyCalls.getFromGreenThumbApi(term, location)
         .then(data => {
-            console.log(this.context)
             this.context.setList(data.businesses)
             this.props.history.push(`/list/${location}`)
         })
@@ -47,6 +46,7 @@ constructor(){
     }
 
     render(){
+        console.log(this.context.list)
         return (
             <div>
                 <form onSubmit={this.handleFormSubmit}>
