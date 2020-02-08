@@ -1,69 +1,52 @@
 import React from 'react';
 import GreeNContext from '../Context';
 import cuid from 'cuid';
+import './ReviewForm.css'; 
 
 export default class ReviewForm extends React.Component {
     static contextType = GreeNContext;
-    constructor() {
-        super()
+    constructor(e) {
+        super(e)
         this.state = {
-            selection: null,
-            newFolder: false,
-            newFolderName: null,
-            pickedFolder: null,
+            selection: [],
+            comments: '',
             error: null
         }
     }
 
-
-
     handleSelection = (e) => {
-        console.log(e.target.value)
         this.setState({
-            selection: e.target.value,
+            selection: [...this.state.selection, e.target.value],
+        })
+       
+    }
+
+    handleComments = (e) => {
+        this.setState({
+            comments: e.target.value
         })
     }
 
-    handleFolder = (e) => {
-        console.log(e.target.value)
-        if (e.target.value === 'new-folder') {
-            this.setState({
-                newFolder: true,
-            })
-        }
-        this.setState({
-            pickedFolder: e.target.value,
-        })
-    }
 
-    handleInputField = (e) => {
-        console.log(e.target.value)
-        if (this.state.newFolder === true) {
-            this.setState({
-                newFolderName: e.target.value,
-            })
-        }
-    }
-
-    handleSubmit = (e) => {
+    handlePlaceReview = (e) => {
         e.preventDefault();
-        const placeId = this.props.match.params.id;
-        if (this.state.newFolder === true) {
-            const createdFolder = {
-                folderId: cuid(),
-                title: this.state.newFolderName,
-                savedPlacesIds: [placeId]
-            }
-            this.context.addFolder(createdFolder)
-        } else {
-            console.log(this.state.pickedFolder, 'REVIEWFORM')
-            this.context.addPlaceToFolder(placeId, this.state.pickedFolder)
+        const id = this.props.match.params.id;
+        const currentPlace = this.context.list.find(item => item.id === id);
+        console.log(currentPlace, 'PLACE')
+        const newReview = {
+            id: cuid(),
+            placeId: this.props.match.params.id,
+            placeName: currentPlace.name,
+            placeCity: currentPlace.location.city,
+            attributes: this.state.selection,
+            addtionalComments: this.state.comments,
         }
+        this.context.addReview(newReview)
+        this.props.history.push(`/reviews/${newReview.placeCity}`)
     }
 
 
     render() {
-
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id)
 
@@ -81,11 +64,12 @@ export default class ReviewForm extends React.Component {
                 {currentPlace.rating}
 
                 <br />
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handlePlaceReview}>
                     <h3>Mark reward worthy habits!:</h3>
-
-                    <input className='input' type='checkbox' value='no-plastic' onClick={this.handleSelection} />
-                    <label>No single use plastics</label>
+                    
+                    <br />
+                    <input className='input' type='checkbox'  value='no-plastic' id='chx1' onClick={this.handleSelection} />
+                    <label htmlFor='chx1'>No single use plastics</label>
                     <br />
 
                     <input className='input' type='checkbox' value='comp-take' onClick={this.handleSelection} />
@@ -141,21 +125,11 @@ export default class ReviewForm extends React.Component {
                     <label>Saves energy and water by installing energy star equipmnet</label>
                     <br />
                     <h3>Additional comments</h3>
-                    <textarea rows="10" cols='50'></textarea>
+                    <textarea rows="10" cols='50' onChange={this.handleComments} ></textarea>
                     <br />
                     <button>Post Review</button>
-
-                    <p>Bookmark this place ?</p>
-                    <select name='bookmarks' onChange={this.handleFolder}>
-                        <option value=''>Choose folder</option>
-                        <option value='favorites'>Favorites</option>
-                        <option value='new-folder'>Create new folder</option>
-
-                    </select>
-                    {this.state.newFolder === false ? <input disabled type='text' placeholder='new folder name' id='newFolder' /> : <input type='text' placeholder='new folder name' id='newFolder' onChange={this.handleInputField} required />}
-
-                    <button type='submit' >SAVE</button>
                 </form>
+
 
             </div>
         )

@@ -1,0 +1,10 @@
+.rev-list {
+    display:flex;
+    
+}
+.li{
+    background-color:lightgrey;
+    margin: 10px;
+    padding: 20px;
+    list-style: none;
+}

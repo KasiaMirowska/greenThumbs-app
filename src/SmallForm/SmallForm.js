@@ -22,6 +22,7 @@ constructor(){
         .then(data => {
             console.log(this.context)
             this.context.setList(data.businesses)
+            this.props.history.push(`/list/${location}`)
         })
         .catch(err => {
             this.setState({

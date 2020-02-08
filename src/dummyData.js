@@ -18,10 +18,22 @@ folders: [
 
 reviews : [
     {
-        id:1,
+        id: 1,
         author: 1,
-        attributes: [],
-        addtionalComments: '',
+        placeId: 'ck6cpc6a100003h5qu7jor4kf',
+        placeName:  "Honeycomb",
+        placeCity: 'Beverly',
+        attributes: ["no-plastic", "hemp", "paperless", "donation"],
+        addtionalComments: 'Great atmosphere!',
+    },
+    {
+        id: 2,
+        author: 1,
+        placeId: 'ck6cpc6a100003h5qu7jor4kf',
+        placeName:  "Honeycomb",
+        placeCity: 'Salem',
+        attributes: ["no-plastic", "paperless", "donation"],
+        addtionalComments: 'Great atmosphere!',
     }
 ]
 }

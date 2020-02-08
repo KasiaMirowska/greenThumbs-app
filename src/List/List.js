@@ -5,10 +5,11 @@ import ListItem from '../LIstItem/ListItem';
 export default class List extends React.Component {
     static contextType = GreenContext;
     render() {
-        let {list} = this.context;
+        console.log(this.props)
+        let { list } = this.context;
         list = list.map(item => {
-                return (
-                   <ListItem 
+            return (
+                <ListItem
                     key={item.id}
                     id={item.id}
                     name={item.name}
@@ -18,15 +19,16 @@ export default class List extends React.Component {
                     img={item.image_url}
                     website={item.url}
                     rating={item.rating}
-                   />
-                )
-            })
-         
-        return(
+                />
+            )
+        })
+
+        return (
             <ul>
+                <h2>PLACES IN : {this.props.match.params.location}</h2>
                 {list}
             </ul>
         )
-        
+
     }
 }
