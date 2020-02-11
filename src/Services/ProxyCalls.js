@@ -4,7 +4,7 @@ import config from '../config';
 
 const ProxyCalls = {
     getFromGreenThumbApi: (term, location) => {
-        const URL = 'http://localhost:8000/' + `?` + `term=${term}` +'&'+ `location=${location}`;
+        const URL = 'https://green-thumbs-up-api.herokuapp.com/' + `?` + `term=${term}` +'&'+ `location=${location}`;
         return fetch(URL, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
