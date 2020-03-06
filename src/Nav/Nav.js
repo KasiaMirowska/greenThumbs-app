@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from '../Login/Login';
-import Register from '../Register/Register';
+import LoginPage from '../Login/LoginPage';
+import Register from '../Register/RegisterForm';
 import {Link} from 'react-router-dom';
 
 export default function Nav(props) {

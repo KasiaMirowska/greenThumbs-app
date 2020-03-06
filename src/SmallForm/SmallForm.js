@@ -16,9 +16,9 @@ constructor(){
     handleFormSubmit = (e) => {
         e.preventDefault();
         const location = this.state.city;
-        const term = 'coffee';
+        const term = this.state.term;
         
-        ProxyCalls.getFromGreenThumbApi(term, location)
+        ProxyCalls.getThroughGreenThumbApi(term, location)
         .then(data => {
             this.context.setList(data.businesses)
             this.props.history.push(`/list/${location}`)
@@ -46,12 +46,12 @@ constructor(){
     }
 
     render(){
-        console.log(this.context.list)
         return (
             <div>
                 <form onSubmit={this.handleFormSubmit}>
                 <h2>Search for: </h2>
                 <select onChange={this.handleTypeInput} required>
+                    <option value=" ">Choose</option>
                     <option value="coffee">Coffee-shops</option>
                     <option value="juice">Juice-Bars</option>
                     <option value="food">Restaurants</option>
