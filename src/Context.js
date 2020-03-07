@@ -1,12 +1,14 @@
 import React, { createContext } from 'react';
-import STORE from './dummyData';
+//import STORE from './dummyData';
 
 const GreenContext = React.createContext({
     list: [],
+    greenPlaces: [],
     users: [],
     folders: [],
     reviews: [],
     setList: () => { },
+    setGreenPlaces: () => { },
     addFolder: () => { },
     addPlaceToFolder: () => { },
     addReview: () => { },
@@ -20,9 +22,10 @@ export class GreenContextProvider extends React.Component {
         super(props)
         this.state = {
             list: [],
-            users: STORE.users,
-            folders: STORE.folders,
-            reviews: STORE.reviews,
+            greenPlaces: [],
+            users: [],
+            folders: [],
+            reviews: [],
             sortReviews: [],
         }
     }
@@ -32,10 +35,15 @@ export class GreenContextProvider extends React.Component {
             list: data,
         })
     }
+    setGreenPlaces = (data) => {
+        this.setState({
+            greenPlaces: data
+        })
+    }
 
     addFolder = (folder) => {
         this.setState({
-            folders: [...STORE.folders, folder]
+            //folders: [...STORE.folders, folder]
         })
     }
 
@@ -54,9 +62,8 @@ export class GreenContextProvider extends React.Component {
     }
 
     reviewCitySort = (city) => {
-        let reviews = this.state.reviews.filter(rev => {
-            console.log(rev.placeCity, city, rev)
-            return rev.placeCity.toLowerCase() === city.toLowerCase()
+        let reviews = this.state.greenPlaces.filter(pl => {
+            return pl.location_city.toLowerCase() === city.toLowerCase()
         })
         console.log(reviews)
         this.setState({
@@ -67,11 +74,13 @@ export class GreenContextProvider extends React.Component {
         console.log(this.state)
         const contextValue = {
             list: this.state.list,
+            greenPlaces: this.state.greenPlaces,
             users: this.state.users,
             folders: this.state.folders,
             reviews: this.state.reviews,
             sortReviews: this.state.sortReviews,
             setList: this.setList,
+            setGreenPlaces: this.setGreenPlaces,
             addFolder: this.addFolder,
             addPlaceToFolder: this.addPlaceToFolder,
             addReview: this.addReview,

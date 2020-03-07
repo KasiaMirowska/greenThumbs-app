@@ -4,7 +4,7 @@ import config from '../config';
 const AuthCalls = {
     postLogin: (credentials) => {
         console.log(credentials)
-        const URL = config.API_ENDPOINT + 'login';
+        const URL = config.API_ENDPOINT + '/login';
         console.log(URL, JSON.stringify(credentials))
         return fetch(URL, {
             method: 'POST',
@@ -28,7 +28,7 @@ const AuthCalls = {
 
     postNewUser: (user) => {
         console.log(user, '????????')
-        const URL = config.API_ENDPOINT + 'register';
+        const URL = config.API_ENDPOINT + '/register';
         return fetch(URL, {
             method: 'POST',
             headers: {

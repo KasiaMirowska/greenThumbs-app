@@ -8,12 +8,10 @@ export default class RegisterForm extends React.Component {
 
     handleForm = (e) => {
         e.preventDefault();
-        const {fullname, city, state, username, password} = e.target;
+        const {fullname, username, password} = e.target;
 
         const newUser = {
             fullname: fullname.value,
-            address_city: city.value,
-            address_state: state.value,
             username: username.value,
             password: password.value,
         }
@@ -21,8 +19,6 @@ export default class RegisterForm extends React.Component {
         AuthCalls.postNewUser(newUser)
         .then(user => {
             fullname.value = '';
-            city.value = '';
-            state.value = '';
             username.value =  '';
             password.value = '';
             this.props.onRegisterSuccess()
@@ -44,10 +40,6 @@ export default class RegisterForm extends React.Component {
                 <form onSubmit={this.handleForm}>
                     <label htmlFor='fullname'>First and Last Name</label>
                     <input type='input' id='fullname' placeholder='fullname' />
-                    <br />
-                    <label htmlFor='address'>Address</label>
-                    <input type='input' id='city' placeholder='city' />
-                    <input type='input' placeholder='state' id='state' />
                     <br />
                     <label htmlFor='login-credentials'>Create your username and password</label>
                     <input type='input' id='username' placeholder='username' />

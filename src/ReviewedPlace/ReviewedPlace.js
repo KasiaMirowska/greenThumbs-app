@@ -24,7 +24,7 @@ export default function Place(props) {
             <Link to={`/bookmark/${props.reviewedPlaceId}`}>
                 <button>Save for future</button>
             </Link>
-            <h3>{props.placeName}</h3>
+            <h3>{props.name}</h3>
             <p>{props.city}</p>
             <p>{props.comments}</p>
             {greenThumbs()}
