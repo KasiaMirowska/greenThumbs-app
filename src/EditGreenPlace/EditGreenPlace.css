@@ -1,0 +1,13 @@
+.checked {
+    color: red;
+    background-color: yellow;
+}
+.res_card {
+    background-color: aqua;
+}
+.box {
+    width: 50%;
+    height: 30vh;
+    background-color: lightgrey;
+   
+}

@@ -11,6 +11,8 @@ import List from './List/List';
 import ReviewForm from './ReviewForm/ReviewForm';
 import Bookmarks from './Bookmarks/Bookmarks';
 import ReviewedList from './ReviewedList/ReviewedList';
+import GreenPlace from './GreenPLaceFullCard/GreenPlace';
+import EditReview from './EditGreenPlace/EditGreenPlace';
 
 
 export default class App extends React.Component {
@@ -19,23 +21,28 @@ export default class App extends React.Component {
       <div className="App">
         <Route path='/' component={Nav} />
         <header className="App-header">
-          <Route path='/' component={Header} />
+          <Route exact path='/' component={Header} />
         </header>
         <main>
-          <Route exact path='/' component={ReviewedList} />
           <Route exact path='/' component={SmallForm} />
+          <Route exact path='/' component={ReviewedList} />
 
+          <Route exact path='/login' component={Header} />
           <Route path='/login' component={LoginPage} />
+          <Route exact path='/register' component={Header} />
           <Route path='/register' component={RegisterPage} />
-          {/* protected paths: below */}
+
+          <Route exact path='/list/:location' component={Header2} />
           <Route exact path='/list/:location' component={List} />
 
+          <Route exact path='/green_place/:yelpId/:placeId' component={Header2} />
+          <Route exact path='/green_place/:yelpId/:placeId' component={GreenPlace} />
 
+          <Route exact path='/edit/:placeId/' component={Header2} />
+          <Route exact path='/edit/:placeId/' component={EditReview} />
 
           <Route exact path='/review/:id' component={Header2} />
-          <Route exact path='/review/:id' component={ReviewForm} />
-
-
+          <Route exact path='/review/:id' component={ReviewForm} />  
 
           <Route exact path='/reviews/:location' component={Header2} />
           <Route exact path='/reviews/:location' component={ReviewedList} />

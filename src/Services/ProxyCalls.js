@@ -4,7 +4,7 @@ import config from '../config';
 
 const ProxyCalls = {
     getThroughGreenThumbApi: (term, location) => {
-        const URL = `http://localhost:8000/` + `?` + `term=${term}` +'&'+ `location=${location}`;
+        const URL = `http://localhost:8000/yelp/` + `?` + `term=${term}` +'&'+ `location=${location}`;
         console.log(URL, 'CLIENT')
         return fetch(URL, {
             headers: {

@@ -51,7 +51,7 @@ constructor(){
                 <form onSubmit={this.handleFormSubmit}>
                 <h2>Search for: </h2>
                 <select onChange={this.handleTypeInput} required>
-                    <option value=" ">Choose</option>
+                    <option value=" ">Choose one </option>
                     <option value="coffee">Coffee-shops</option>
                     <option value="juice">Juice-Bars</option>
                     <option value="food">Restaurants</option>

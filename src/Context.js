@@ -4,15 +4,13 @@ import React, { createContext } from 'react';
 const GreenContext = React.createContext({
     list: [],
     greenPlaces: [],
-    users: [],
+    userPlaces: [],
     folders: [],
-    reviews: [],
+    citySortPlaces: [],
     setList: () => { },
     setGreenPlaces: () => { },
-    addFolder: () => { },
-    addPlaceToFolder: () => { },
-    addReview: () => { },
-    sortReviews: [],
+    citySort: () => {},
+    userSort: () => {},
 
 })
 export default GreenContext;
@@ -23,10 +21,9 @@ export class GreenContextProvider extends React.Component {
         this.state = {
             list: [],
             greenPlaces: [],
-            users: [],
+            userPlaces: [],
+            citySortPlaces: [],
             folders: [],
-            reviews: [],
-            sortReviews: [],
         }
     }
 
@@ -41,50 +38,33 @@ export class GreenContextProvider extends React.Component {
         })
     }
 
-    addFolder = (folder) => {
+    userSort = (filteredPlaces)=> {
         this.setState({
-            //folders: [...STORE.folders, folder]
+            userPlaces: filteredPlaces,
         })
     }
 
-    addPlaceToFolder = (id, folderName) => {
-        console.log(this.state.folders, folderName, id)
-        const pickedFolder = this.state.folders.find(folder => folder.title === folderName)
-        console.log(pickedFolder, 'PICKED')
-        pickedFolder.savedPlacesIds = [...pickedFolder.savedPlacesIds, id]
-    }
-
-    addReview = (review) => {
-        console.log(review, 'REVIEW IN CONTEXT')
-        this.setState({
-            reviews: [...this.state.reviews, review]
-        })
-    }
-
-    reviewCitySort = (city) => {
+    citySort = (city) => {
         let reviews = this.state.greenPlaces.filter(pl => {
+            console.log(city, this.state.greenPlaces)
             return pl.location_city.toLowerCase() === city.toLowerCase()
         })
         console.log(reviews)
         this.setState({
-            sortReviews: reviews,
+            citySortPlaces: reviews,
         })
     }
     render() {
-        console.log(this.state)
+       
         const contextValue = {
             list: this.state.list,
             greenPlaces: this.state.greenPlaces,
-            users: this.state.users,
-            folders: this.state.folders,
-            reviews: this.state.reviews,
-            sortReviews: this.state.sortReviews,
+            userPlaces: this.state.userPlaces,
+            citySortPlaces: this.state.citySortPlaces,
+            userSort: this.userSort,
             setList: this.setList,
             setGreenPlaces: this.setGreenPlaces,
-            addFolder: this.addFolder,
-            addPlaceToFolder: this.addPlaceToFolder,
-            addReview: this.addReview,
-            reviewCitySort: this.reviewCitySort,
+            citySort: this.citySort,
         }
         return (
             <GreenContext.Provider value={contextValue} >

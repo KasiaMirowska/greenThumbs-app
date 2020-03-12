@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import TokenService from '../Services/token-service';
+import config from '../config';
 
-export default function Place(props) {
-   
+export default withRouter(function ReviewedListItem(props) {
+   console.log(props)
     const greenThumbs = () => {
         const thumbs = [];
         for(let i =0; i < props.thumbs; i++){
@@ -18,16 +20,22 @@ export default function Place(props) {
             </div>
         )
     }
+
+    const openFullCard = (e) => {
+        const token = TokenService.hasAuthToken(config.TOKEN_KEY)
+        if(!token) {
+            props.history.push('/login')
+        } else {
+            props.history.push(`/green_place/:${props.yelpId}/:${props.placeId}`)
+        }
+
+    }
     
     return (
-        <div>
-            <Link to={`/bookmark/${props.reviewedPlaceId}`}>
-                <button>Save for future</button>
-            </Link>
+        <div onClick={openFullCard}>
             <h3>{props.name}</h3>
             <p>{props.city}</p>
-            <p>{props.comments}</p>
             {greenThumbs()}
         </div>
     )
-}
+});
