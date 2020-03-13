@@ -11,6 +11,7 @@ export default class ReviewedList extends React.Component {
         super()
         this.state = {
             userSort: false,
+            error: null,
         }
     }
 
@@ -21,7 +22,9 @@ export default class ReviewedList extends React.Component {
                 this.context.setGreenPlaces(data)
             })
             .catch(err => {
-                console.log(err)
+                this.setState({
+                    error: err
+                })
             })
     }
 
@@ -32,6 +35,11 @@ export default class ReviewedList extends React.Component {
             this.context.userSort(res)
             this.setState({userSort: true,})
             
+        })
+        .catch(err => {
+            this.setState({
+                error: err
+            })
         })
     }
 

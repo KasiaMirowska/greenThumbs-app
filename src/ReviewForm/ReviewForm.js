@@ -55,6 +55,11 @@ export default class ReviewForm extends React.Component {
         .then(data => {
             console.log(data, 'SAVED????')
         })
+        .catch(err => {
+            this.setState({
+                error: err
+            })
+        })
         this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
     }
 

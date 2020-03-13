@@ -92,12 +92,18 @@ export default class EditGreenPlace extends React.Component {
             ...this.state.placeInfo,
             checkedThumbs: finalThumbList,
         }
-        
+
         let place_id = this.props.match.params.placeId
         GreenCalls.editGreenPlace(place_id, updatedReview)
         .then(data => {
             console.log(data)
         })
+        .catch(err => {
+            this.setState({
+                error: err
+            })
+        })
+        this.props.history.push('/');
     }
 
 
@@ -155,7 +161,7 @@ export default class EditGreenPlace extends React.Component {
                     </textarea>
                     
                     <br />
-                    <button>Update Review</button>
+                    <button type='submit' >Update Review</button>
                 </form>
 
 

@@ -6,18 +6,18 @@ const GreenCalls = {
         const URL = config.API_ENDPOINT + '/';
         console.log(URL)
         return fetch(URL)
-        .then(res => {
-            if(!res.ok) {
-                return res.json()
-                .then(err => {
-                    console.log(err)
-                    throw new Error(err.error.message)
-                })
-            }
-            console.log(res)
-            return res;
-        })
-        .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    return res.json()
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
+                }
+                console.log(res)
+                return res;
+            })
+            .then(res => res.json())
     },
 
     postNewReview: (placeId, newPlace) => {
@@ -26,23 +26,23 @@ const GreenCalls = {
         return fetch(URL, {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json',
+                'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
             body: JSON.stringify(newPlace),
         })
-        .then(res => {
-            if(!res.ok) {
-                return res.json()
-                .then(err => {
-                    console.log(err)
-                    throw new Error(err.error.message)
-                })
-            }
-            console.log(res)
-            return res;
-        })
-        .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    return res.json()
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
+                }
+                console.log(res)
+                return res;
+            })
+            .then(res => res.json())
     },
 
     getAllGreenPlacesByUser: () => {
@@ -50,21 +50,21 @@ const GreenCalls = {
         return fetch(URL, {
             method: 'GET',
             headers: {
-                'content-type' : 'application/json',
+                'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
         })
-        .then(res => {
-            if(!res.ok) {
-                return res.json()
-                .then(err => {
-                    console.log(err)
-                    throw new Error(err.error.message)
-                })
-            }
-            return res;
-        })
-        .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    return res.json()
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
+                }
+                return res;
+            })
+            .then(res => res.json())
     },
 
     getGreenPlaceById: (placeId) => {
@@ -72,23 +72,23 @@ const GreenCalls = {
         return fetch(URL, {
             method: 'GET',
             headers: {
-                'content-type' : 'application/json',
+                'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
         })
             .then(res => {
-                if(!res.ok) {
+                if (!res.ok) {
                     return res.json()
-                    .then(err => {
-                        console.log(err)
-                        throw new Error(err.error.message)
-                    })
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
                 }
                 console.log(res)
                 return res;
             })
             .then(res => res.json())
-    
+
     },
 
 
@@ -98,24 +98,45 @@ const GreenCalls = {
         return fetch(URL, {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json',
+                'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
             body: JSON.stringify(updatedInfo),
         })
             .then(res => {
-                if(!res.ok) {
+                if (!res.ok) {
                     return res.json()
-                    .then(err => {
-                        console.log(err)
-                        throw new Error(err.error.message)
-                    })
+                        .then(err => {
+                            console.log(err)
+                            throw new Error(err.error.message)
+                        })
                 }
                 console.log(res)
                 return res;
             })
             .then(res => res.json())
-    }
+    },
+
+    deleteGreenPlace: (placeId) => {
+        const URL = config.API_ENDPOINT + `/place/delete/${placeId}`;
+        return fetch(URL, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+            .then(res => {
+                if (!res.ok) {
+                    console.log('error on delete')
+                    throw new Error('error on delete')
+
+                }
+
+            })
+
+    },
+
 }
 
 export default GreenCalls;
