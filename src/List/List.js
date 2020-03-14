@@ -5,6 +5,7 @@ import ListItem from '../LIstItem/ListItem';
 export default class List extends React.Component {
     static contextType = GreenContext;
     render() {
+        console.log(this.context.list)
         let { list } = this.context;
         list = list.map(item => {
             return (
@@ -13,7 +14,7 @@ export default class List extends React.Component {
                     id={item.id}
                     name={item.name}
                     location={item.location}
-                    phone={item.phone}
+                    phone={item.display_phone}
                     price={item.price}
                     img={item.image_url}
                     website={item.url}

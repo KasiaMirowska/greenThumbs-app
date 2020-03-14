@@ -4,25 +4,25 @@ import TokenService from '../Services/token-service';
 const GreenCalls = {
     getAllReviewedPlaces: () => {
         const URL = config.API_ENDPOINT + '/';
-        console.log(URL)
+        console.log(URL);
         return fetch(URL)
             .then(res => {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
-                            throw new Error(err.error.message)
+                            console.log(err);
+                            throw new Error(err.error.message);
                         })
                 }
-                console.log(res)
+                console.log(res);
                 return res;
             })
-            .then(res => res.json())
+            .then(res => res.json());
     },
 
     postNewReview: (placeId, newPlace) => {
-        const URL = config.API_ENDPOINT + `/${placeId}/review`
-        console.log(URL)
+        const URL = config.API_ENDPOINT + `/${placeId}/review`;
+        console.log(URL, newPlace);
         return fetch(URL, {
             method: 'POST',
             headers: {

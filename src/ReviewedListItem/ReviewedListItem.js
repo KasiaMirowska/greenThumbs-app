@@ -26,7 +26,7 @@ export default withRouter(function ReviewedListItem(props) {
         if(!token) {
             props.history.push('/login')
         } else {
-            props.history.push(`/green_place/:${props.yelpId}/:${props.placeId}`)
+            props.history.push(`/green_place/${props.yelpId}/${props.placeId}`)
         }
 
     }

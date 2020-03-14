@@ -12,7 +12,8 @@ const GreenContext = React.createContext({
     citySort: () => {},
     userSort: () => {},
 
-})
+});
+
 export default GreenContext;
 
 export class GreenContextProvider extends React.Component {
@@ -27,32 +28,32 @@ export class GreenContextProvider extends React.Component {
         }
     }
 
-    setList = (data) => {
+    setList = data => {
         this.setState({
             list: data,
-        })
+        });
     }
-    setGreenPlaces = (data) => {
+    setGreenPlaces = data => {
         this.setState({
             greenPlaces: data
-        })
+        });
     }
 
-    userSort = (filteredPlaces)=> {
+    userSort = filteredPlaces => {
         this.setState({
             userPlaces: filteredPlaces,
-        })
+        });
     }
 
-    citySort = (city) => {
+    citySort = city => {
         let reviews = this.state.greenPlaces.filter(pl => {
-            console.log(city, this.state.greenPlaces)
-            return pl.location_city.toLowerCase() === city.toLowerCase()
-        })
+            console.log(city, this.state.greenPlaces);
+            return pl.location_city.toLowerCase() === city.toLowerCase();
+        });
         console.log(reviews)
         this.setState({
             citySortPlaces: reviews,
-        })
+        });
     }
     render() {
        
@@ -65,12 +66,12 @@ export class GreenContextProvider extends React.Component {
             setList: this.setList,
             setGreenPlaces: this.setGreenPlaces,
             citySort: this.citySort,
-        }
+        };
         return (
             <GreenContext.Provider value={contextValue} >
                 {this.props.children}
             </GreenContext.Provider >
 
-        )
+        );
     }
 }

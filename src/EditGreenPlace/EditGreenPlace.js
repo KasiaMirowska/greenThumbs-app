@@ -25,6 +25,15 @@ export default class EditGreenPlace extends React.Component {
             'Saves energy by installing light timers and motion sensors': false,
             'Saves water by installing low flow faucets': false,
             'Saves energy and water by installing energy star equipmnet': false,
+            categories: {
+                "Coffee-shops": false,
+                "Bakeries": false,
+                "Juice-Bar": false,
+                "Resturants": false,
+                "Breakfast": false,
+                "Lunch": false,
+                "Dinner":false, 
+            },
              error: null,
         }
     }
@@ -40,7 +49,17 @@ export default class EditGreenPlace extends React.Component {
                     placeInfo: place,
                     comments: place.review,
                 })
-
+                
+            //    Object.keys(this.state.categories).forEach(category => {
+            //        if(category === place.category) {
+            //         this.setState(prevState => ({
+            //             categories:{
+            //                 [category]: !prevState[category]
+            //             }   
+            //         }))
+            //        }
+            //    });
+            
                 place.checkedThumbs.forEach(thumb => {
                     if (Object.keys(this.state).includes(thumb)) {
                         this.setState(prevState => ({
@@ -77,6 +96,21 @@ export default class EditGreenPlace extends React.Component {
         })
     }
 
+    handleCategory = (e)=> {
+        e.preventDefault();
+        //const category = e.target.value
+        
+        // this.setState(prevState => ({
+        // [category]: !prevState[category]
+        // }))
+        this.setState({
+            placeInfo: {
+                ...this.state.placeInfo,
+               category: e.target.value,
+            }
+        })
+    }
+
     handleUpdateReview = (e) => {
         e.preventDefault();
         const updatedThumbs = [];
@@ -109,8 +143,8 @@ export default class EditGreenPlace extends React.Component {
 
 
     render() {
-        
-        const { id, yelpId, name, img_url, url, yelprating, location_str, location_city, location_zip, location_st, displayphone, folderid, review } = this.state.placeInfo;
+    
+        const { id, yelpId, name, img_url, url, yelprating, location_str, location_city, location_zip, location_st, displayphone, category, } = this.state.placeInfo;
 
         console.log(this.state.placeInfo)
         let checkingBoxes = [];
@@ -134,7 +168,7 @@ export default class EditGreenPlace extends React.Component {
                 ))
             }
         }
-
+        
        
         return (
             <div >
@@ -146,7 +180,7 @@ export default class EditGreenPlace extends React.Component {
                 <p>{location_st}</p>
                 <p>{location_zip}</p>
                 <p>{displayphone}</p>
-
+                <p>{category}</p>
                 <a href={`${url}`}><h2>Visit</h2></a>
                 <p>Yelp rating:</p>{yelprating}
 
@@ -157,8 +191,21 @@ export default class EditGreenPlace extends React.Component {
                    
                     <h3>Additional comments</h3>
                     <textarea rows="10" cols='50' onChange={this.handleComments} >
-                    <div contentEditable='true' >{this.state.placeInfo.review}</div>
+                    <div contentEditable='true' >{this.state.comments}</div>
                     </textarea>
+                    
+
+                    <h2>Save in category: </h2>
+                    <select onChange={this.handleCategory} required>
+                    <option value=" ">Choose one </option>
+                    <option value="Coffee-shops">Coffee-shops</option>
+                    <option value="Bakeries">Bakeries</option>
+                    <option value="Juice-Bar">Juice-Bars</option>
+                    <option value="Resturants">Restaurants</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    </select>
                     
                     <br />
                     <button type='submit' >Update Review</button>
