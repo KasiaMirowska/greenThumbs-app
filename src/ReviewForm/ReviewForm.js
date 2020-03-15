@@ -62,7 +62,7 @@ export default class ReviewForm extends React.Component {
         GreenCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
         .then(data => {
             console.log(data, 'SAVED????')
-            this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
+            //this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
         })
         .catch(err => {
             this.setState({
@@ -158,10 +158,10 @@ export default class ReviewForm extends React.Component {
                     <h2>Save in category: </h2>
                     <select onChange={this.handleCategory} required>
                     <option value=" ">Choose one </option>
-                    <option value="Coffee-shops">Coffee-shops</option>
-                    <option value="Bakeries">Bakeries</option>
+                    <option value="Coffee-shop">Coffee-shops</option>
+                    <option value="Bakery">Bakeries</option>
                     <option value="Juice-Bar">Juice-Bars</option>
-                    <option value="Resturants">Restaurants</option>
+                    <option value="Restaurant">Restaurants</option>
                     <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
                     <option value="Dinner">Dinner</option>

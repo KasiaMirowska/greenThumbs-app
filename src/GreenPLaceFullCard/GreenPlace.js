@@ -20,42 +20,43 @@ export default withRouter(class GreenPlace extends React.Component {
         let placeId = Number(this.props.match.params.placeId);
         console.log(placeId, 'DELETING????')
         GreenCalls.deleteGreenPlace(placeId)
-        .then(() => {
-            console.log('review deleted')
-            this.props.history.push('/')
-        })
-        .catch(err => {
-            this.setState({
-                error: err
+            .then(() => {
+                console.log('review deleted')
+                this.props.history.push('/')
             })
-        })
-        
+            .catch(err => {
+                this.setState({
+                    error: err
+                })
+            })
+
     }
 
-    // handleUserIdentity Before Delete = () => {
+    // handleUserIdentityBeforeDeleteAndPost = () => {
     //     let token = TokenService.getAuthToken()
     //     let user = TokenService.verifyJWT(token)
     //     console.log(user, token)
     // }
 
     render() {
-        //this.handleDeleteButtton()
+        console.log(this.context.currentUser)
+        // this.handleUserIdentityBeforeDeleteAndPost()
         const greenPractices = ['No single use plastic', 'Compostable take-out containers and cups', 'No plastic bottled drinks', 'Composting food scraps', 'Recycle and compost bins inside', 'Hemp based or fabric napkins and paper towels', 'Papperless, fully computer based billing and record keeping', 'Donating leftover food to local shelter or "free meal night"', 'Locally sourced produce', 'Organic produce', 'Resposible frying oil disposal', 'Saves energy by installing light timers and motion sensors', 'Saves water by installing low flow faucets', 'Saves energy and water by installing energy star equipmnet']
-        
-        let placeId = this.props.match.params.placeId;
+
+        let placeId = Number(this.props.match.params.placeId);
         let yelpId = this.props.match.params.yelpId;
         console.log(this.props.match.params)
         const selectedPlace = this.context.greenPlaces.find(pl => pl.yelp_id === yelpId)
-        console.log(this.context.greenPlaces, selectedPlace, 'SELECTED', yelpId,'YELP?????')
-        const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, userid, green_reviews_count,category, review, reviewDate, checkedThumbs } = selectedPlace;
+        console.log(this.context.greenPlaces, selectedPlace, 'SELECTED', yelpId, 'YELP?????')
+        const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, userid, green_reviews_count, category, review, reviewDate, checkedThumbs } = selectedPlace;
 
         const greenThumbs = selectedPlace.checkedThumbs.map((el, key) => {
             return (
                 <li key={key}>{el}</li>
             )
         })
-        
-        
+
+
         const remainingPractices = [];
         greenPractices.filter(el => {
             if (!selectedPlace.checkedThumbs.includes(el)) {
@@ -69,20 +70,34 @@ export default withRouter(class GreenPlace extends React.Component {
                 </li>
             )
         })
-        
-        
-        
+
+        const currentUsersPlace = this.context.userPlaces.find(place => place.id === placeId)
+        console.log(currentUsersPlace, this.context.userPlaces, 'PLACE??????')
         return (
+
             <div>
                 <img src={img} />
-                <Link to={`/bookmark/${placeId}`}>
+                {/* <Link to={`/bookmark/${placeId}`}>
                     <button>Save place to my folder</button>
-                </Link>
-                <Link to={`/edit/${placeId}/`}>
-                    <button>Edit review</button>
-                </Link>
+                </Link> */}
+                {currentUsersPlace ?
+                    <section>
+                        <Link to={`/edit/${placeId}/`}>
+                            <button>Edit review</button>
+                        </Link>
+                        <button type='button' onClick={this.deleteReview}>delete</button>
+                    </section>
+                    :
+                    <section>
+                        <Link to={`/edit/${placeId}/`} >
+                            <button disabled={!currentUsersPlace}>Edit review</button>
+                        </Link>
+                        <button type='button' disabled={!currentUsersPlace} >delete</button>
+                        <h4>Please login to place a review or delete </h4>
+                    </section>
+                }
 
-                <button type='button' onClick={this.deleteReview}>delete</button>
+
 
                 <h2>{name}</h2>
                 <h3>Address:</h3><p>{location_str}, {location_city}, {location_st}, {location_zip}</p>

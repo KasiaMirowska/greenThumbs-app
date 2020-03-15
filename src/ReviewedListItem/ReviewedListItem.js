@@ -6,7 +6,7 @@ import TokenService from '../Services/token-service';
 import config from '../config';
 
 export default withRouter(function ReviewedListItem(props) {
-   console.log(props)
+  
     const greenThumbs = () => {
         const thumbs = [];
         for(let i =0; i < props.thumbs; i++){

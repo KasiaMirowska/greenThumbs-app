@@ -22,6 +22,7 @@ const ListHelpers = {
         })
         return reviews;
     },
+
 }
 
 export default ListHelpers;

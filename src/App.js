@@ -9,10 +9,10 @@ import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage';
 import List from './List/List';
 import ReviewForm from './ReviewForm/ReviewForm';
-import Bookmarks from './Bookmarks/Bookmarks';
 import ReviewedList from './ReviewedList/ReviewedList';
 import GreenPlace from './GreenPLaceFullCard/GreenPlace';
 import EditReview from './EditGreenPlace/EditGreenPlace';
+import UserSort from './ReviewedList/UserSort';
 
 
 export default class App extends React.Component {
@@ -32,6 +32,14 @@ export default class App extends React.Component {
           <Route exact path='/register' component={Header} />
           <Route path='/register' component={RegisterPage} />
 
+          {/* <Route exact path='/user_sort' component={Header2} />
+          <Route exact path='/user_sort' component={ReviewedList} />
+          <Route exact path='/user_sort' component={UserSort} /> */}
+          
+          <Route exact path='/user/places' component={ReviewedList} />
+          <Route exact path='/city/:city' component={ReviewedList} />
+          <Route exact path='/category/:category' component={ReviewedList} />
+
           <Route exact path='/list/:location' component={Header2} />
           <Route exact path='/list/:location' component={List} />
 
@@ -48,7 +56,6 @@ export default class App extends React.Component {
           <Route exact path='/reviews/:location' component={ReviewedList} />
           <Route exact path='/reviews/:location' component={List} />
 
-          <Route exact path='/bookmark/:place_id' component={Bookmarks} />
         </main>
       </div>
     );

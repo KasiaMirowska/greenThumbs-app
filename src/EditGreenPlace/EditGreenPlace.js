@@ -41,7 +41,7 @@ export default class EditGreenPlace extends React.Component {
 
     componentDidMount = () => {
         let place_id = this.props.match.params.placeId
-        console.log(place_id, this.props);
+        console.log(place_id, this.props, 'PROPPPPPPPPPPPPP');
         GreenCalls.getGreenPlaceById(place_id)
             .then(place => {
                 console.log(place)

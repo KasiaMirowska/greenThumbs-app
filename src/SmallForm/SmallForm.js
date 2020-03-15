@@ -37,7 +37,7 @@ export default class SmallForm extends React.Component {
             city: location,
         });
     }
-    handleTypeInput = e => {
+    handleCategoryInput = e => {
         e.preventDefault();
         console.log(e.target.value)
         this.setState({
@@ -50,7 +50,7 @@ export default class SmallForm extends React.Component {
             <div>
                 <form onSubmit={this.handleFormSubmit}>
                     <h2>Search for: </h2>
-                    <select onChange={this.handleTypeInput} required>
+                    <select onChange={this.handleCategoryInput} required>
                         <option value=" ">Choose one </option>
                         <option value="coffee">Coffee-shops</option>
                         <option value="bakery">Bakeries</option>
