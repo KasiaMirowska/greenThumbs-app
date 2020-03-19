@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component renders UI as expected 1`] = `
+<div
+  className="nav"
+>
+  <a
+    className="link"
+    href="/login"
+    onClick={[Function]}
+  >
+    Login
+  </a>
+  <a
+    className="register"
+    href="/register"
+    onClick={[Function]}
+  >
+    Register
+  </a>
+</div>
+`;

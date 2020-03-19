@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import TokenService from '../Services/token-service';
 import config from '../config';
+import './ReviewedListItem.css';
+
+
 
 export default withRouter(function ReviewedListItem(props) {
   
@@ -11,7 +14,7 @@ export default withRouter(function ReviewedListItem(props) {
         const thumbs = [];
         for(let i =0; i < props.thumbs; i++){
             thumbs.push(<span key={i}>
-                < FontAwesomeIcon icon={faThumbsUp} style={{ color: 'green', padding: '3px' }} />
+                < FontAwesomeIcon icon={faThumbsUp} style={{ color: '#008000', padding: '3px' }} />
             </span>)
         } 
         return(

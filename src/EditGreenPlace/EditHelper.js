@@ -27,7 +27,6 @@ changeThumbIntoNUM: (thumbs) => {
            console.log(thumb)
             for(let [key,value] of Object.entries(thumbObjects)){
                 if(key === thumb) {
-                    console.log(key, thumb ,'????????????')
                     finalThumbList.push(value)
                 } 
             }

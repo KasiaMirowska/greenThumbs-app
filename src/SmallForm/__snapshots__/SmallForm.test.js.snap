@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmallForm component renders UI as expected 1`] = `
+<div
+  className="small-form"
+>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="select-bar"
+    >
+      <h2>
+        Search for: 
+      </h2>
+      <select
+        className="form__field"
+        onChange={[Function]}
+        required={true}
+      >
+        <option
+          value=" "
+        >
+          Select category: 
+        </option>
+        <option
+          value="coffee"
+        >
+          Coffee-shops
+        </option>
+        <option
+          value="bakery"
+        >
+          Bakeries
+        </option>
+        <option
+          value="juice"
+        >
+          Juice-Bars
+        </option>
+        <option
+          value="resturants"
+        >
+          Restaurants
+        </option>
+        <option
+          value="breakfast"
+        >
+          Breakfast
+        </option>
+        <option
+          value="lunch"
+        >
+          Lunch
+        </option>
+        <option
+          value="dinner"
+        >
+          Dinner
+        </option>
+      </select>
+      <h2>
+        In
+      </h2>
+      <input
+        className="form__field"
+        onChange={[Function]}
+        placeholder="City"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div
+      className="button-container"
+    >
+      <button>
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+`;

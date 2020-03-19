@@ -2,8 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import GreenContext from '../Context';
 import GreenCalls from '../Services/GreenCalls';
-import jwt from 'jsonwebtoken';
-import TokenService from '../Services/token-service';
+
 
 export default withRouter(class GreenPlace extends React.Component {
     static contextType = GreenContext;
@@ -18,7 +17,6 @@ export default withRouter(class GreenPlace extends React.Component {
     deleteReview = (e) => {
         e.preventDefault();
         let placeId = Number(this.props.match.params.placeId);
-        console.log(placeId, 'DELETING????')
         GreenCalls.deleteGreenPlace(placeId)
             .then(() => {
                 console.log('review deleted')
@@ -39,16 +37,15 @@ export default withRouter(class GreenPlace extends React.Component {
     // }
 
     render() {
-        console.log(this.context.currentUser)
         // this.handleUserIdentityBeforeDeleteAndPost()
         const greenPractices = ['No single use plastic', 'Compostable take-out containers and cups', 'No plastic bottled drinks', 'Composting food scraps', 'Recycle and compost bins inside', 'Hemp based or fabric napkins and paper towels', 'Papperless, fully computer based billing and record keeping', 'Donating leftover food to local shelter or "free meal night"', 'Locally sourced produce', 'Organic produce', 'Resposible frying oil disposal', 'Saves energy by installing light timers and motion sensors', 'Saves water by installing low flow faucets', 'Saves energy and water by installing energy star equipmnet']
 
         let placeId = Number(this.props.match.params.placeId);
         let yelpId = this.props.match.params.yelpId;
-        console.log(this.props.match.params)
+        
         const selectedPlace = this.context.greenPlaces.find(pl => pl.yelp_id === yelpId)
-        console.log(this.context.greenPlaces, selectedPlace, 'SELECTED', yelpId, 'YELP?????')
-        const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, userid, green_reviews_count, category, review, reviewDate, checkedThumbs } = selectedPlace;
+      
+        const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, green_reviews_count, category, review } = selectedPlace;
 
         const greenThumbs = selectedPlace.checkedThumbs.map((el, key) => {
             return (
@@ -72,14 +69,11 @@ export default withRouter(class GreenPlace extends React.Component {
         })
 
         const currentUsersPlace = this.context.userPlaces.find(place => place.id === placeId)
-        console.log(currentUsersPlace, this.context.userPlaces, 'PLACE??????')
+        
         return (
 
             <div>
                 <img src={img} />
-                {/* <Link to={`/bookmark/${placeId}`}>
-                    <button>Save place to my folder</button>
-                </Link> */}
                 {currentUsersPlace ?
                     <section>
                         <Link to={`/edit/${placeId}/`}>

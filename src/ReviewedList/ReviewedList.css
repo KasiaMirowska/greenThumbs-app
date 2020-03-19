@@ -1,6 +1,29 @@
+
+.big-container {
+    padding-bottom: 5%;
+    color: rgb(49, 70, 49);
+}
+.mid-container {
+    padding: 35px;
+}
+
+.smaller-header {
+    font-family: 'Anton', sans-serif;
+    background-color: rgb(207, 236, 236);
+    font-size: 20px;
+    color: rgb(19, 87, 19);
+    
+    margin: 0;
+    padding: 20px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-left: 5%;
+}
+
+
 .rev-list {
     display:flex;
-    
+    justify-content: space-evenly;
 }
 .li{
     background-color:lightgrey;
@@ -8,3 +31,37 @@
     padding: 20px;
     list-style: none;
 }
+
+
+@media (min-width: 600px) {
+    .section {
+       padding-left: 15px;
+        width: 60%;
+        margin: auto;
+        margin-left: 40%;
+        justify-content: right;
+        
+    }
+    .section2 {
+        display: flex;
+        width: 60%;
+        margin: auto;
+        margin-left: 40%;
+    }
+    .section3 {
+        display: flex;
+        width: 60%;
+        margin: auto;
+        margin-left: 40%;
+        padding-left: 15px;
+        /* justify-content: space-evenly;  */
+    }
+    
+    /* .form2 {
+       
+        margin: auto;
+        padding: 20px;
+        
+    } */
+
+}  

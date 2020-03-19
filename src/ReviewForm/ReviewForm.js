@@ -40,7 +40,8 @@ export default class ReviewForm extends React.Component {
         e.preventDefault();
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id);
-        console.log(currentPlace, 'PLACE')
+        const reviewCount = 0;
+      
         const newReviewedPlace = {
             yelp_id: this.props.match.params.id,
             name: currentPlace.name,
@@ -53,22 +54,32 @@ export default class ReviewForm extends React.Component {
             location_st: currentPlace.location.state,
             display_phone: currentPlace.display_phone,
             category: this.state.category,
-            // price: currentPlace.price,
             checkedThumbs: this.state.selection,
             review: this.state.comments,
         }
-        console.log(newReviewedPlace, 'SENT INFO')
         
         GreenCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
         .then(data => {
-            console.log(data, 'SAVED????')
-            //this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
+            console.log(data, 'SAVED????', data.id)
+            this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
         })
         .catch(err => {
             this.setState({
                 error: err
             })
         })
+
+        // GreenCalls.checkReviewCount(currentPlace.id)
+        // .then(count => {
+        //     console.log(count)
+        //     reviewCount = Number(count)
+        // })
+        // .catch(err => {
+        //     this.setState({
+        //         error: err
+        //     })
+        // })
+        // console.log(reviewCount, 'REVIEWCOUNT!!!!!')
         
     }
 
@@ -76,7 +87,7 @@ export default class ReviewForm extends React.Component {
     render() {
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id)
-        console.log(currentPlace,'CURRENT PLACE')
+       
         return (
             <div className='res-card'>
                 <h2>{currentPlace.name}</h2>

@@ -1,6 +1,8 @@
 import React from 'react';
 import ProxyCalls from '../Services/ProxyCalls'
 import GreenContext from '../Context';
+import './SmallForm.css';
+
 
 export default class SmallForm extends React.Component {
     static contextType = GreenContext;
@@ -8,7 +10,7 @@ export default class SmallForm extends React.Component {
         super()
         this.state = {
             error: null,
-            stateSelection: null,
+            //stateSelection: null,
             city: null,
             term: null,
         }
@@ -46,26 +48,43 @@ export default class SmallForm extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <form onSubmit={this.handleFormSubmit}>
-                    <h2>Search for: </h2>
-                    <select onChange={this.handleCategoryInput} required>
-                        <option value=" ">Choose one </option>
-                        <option value="coffee">Coffee-shops</option>
-                        <option value="bakery">Bakeries</option>
-                        <option value="juice">Juice-Bars</option>
-                        <option value="resturants">Restaurants</option>
-                        <option value="breakfast">Breakfast</option>
-                        <option value="lunch">Lunch</option>
-                        <option value="dinner">Dinner</option>
+        // const options = [
+        //     {value:"coffee" , label:'Coffee-shops'},
+        //     {value:"bakery", label:'Bakeries'},
+        //     {value:"juice", label:'Juice-Bars'},
+        //     {value:"breakfast", label:'Breakfast'},
+        //     {value:"lunch", lable:'Lunch'},
+        //     {value:"dinner", label:'Dinner'}
 
-                    </select>
-                    <h2>in :</h2>
-                    <label>City</label>
-                    <input type='text' onChange={this.handleCityInput} required />
-                    <br />
-                    <button>Search</button>
+        // ]
+        return (
+            <div className='small-form'>
+
+                <form className='form'onSubmit={this.handleFormSubmit}>
+                    <div className='select-bar' >
+                        <h2>Search for: </h2>
+                        
+                        <select className="form__field" onChange={this.handleCategoryInput} required>
+                            <option value=" ">Select category: </option>
+                            <option value="coffee">Coffee-shops</option>
+                            <option value="bakery">Bakeries</option>
+                            <option value="juice">Juice-Bars</option>
+                            <option value="resturants">Restaurants</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                        </select>
+                       
+                    {/* </div>
+
+
+                    <div className='search-bar'> */}
+                        <h2>In</h2>
+                        <input type='text' className="form__field" placeholder='City' onChange={this.handleCityInput} required />
+                    </div>
+                    <div className='button-container'>
+                        <button>Search</button>
+                    </div>
                 </form>
 
             </div>

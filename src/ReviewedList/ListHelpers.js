@@ -5,7 +5,7 @@ import ReviewedListItem from '../ReviewedListItem/ReviewedListItem';
 
 const ListHelpers = {
     sortDisplay: (list) => {
-        console.log(list)
+        console.log(list, 'LISTLISTLIST')
         const reviews = list.map(pl => {
             return (
                 <li className='li' key={pl.id}>

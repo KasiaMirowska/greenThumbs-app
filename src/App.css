@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(2, 49, 63);
+    background-position: right bottom, left top; 
+    background-size: cover; 
+    /* background-size: 100%; */
+    /* background-repeat: no-repeat; */
+    background-image: url(https://green-images.s3.amazonaws.com/Image+URL.jpg) ;
+    color: rgb(19, 87, 19);
+}
+
+main {
+   
+    width: 70%;
+    margin: auto;
+    background-color: rgba(204, 255, 238, 0.5);
+    padding-bottom: 50px;
+    font-family: 'Dosis', sans-serif;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    /* background-image: url(https://green-images.s3.amazonaws.com/AdobeStock_310919150.jpeg); */
+    
+}
+
+a {
+    /* color: rgb(179, 209, 108); */
+    color: rgb(0, 128, 0);
+    text-decoration: none;
+    margin: 5px;
+}
+
+button {
+   
+    background-color: green;
+    border: 0px;
+    padding: 10px;
+    padding-left : 25px;
+    padding-right: 25px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin: 20px;
+   
+}
+
+input, h2, ul {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 30%;
+    margin: auto;
+    display: block;
+}
+
+@media (min-width: 600px) {
+    
+   
+  }  

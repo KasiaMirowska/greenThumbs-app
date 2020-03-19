@@ -69,7 +69,6 @@ export class GreenContextProvider extends React.Component {
 
     citySort = city => {
         let reviews = this.state.greenPlaces.filter(pl => {
-            console.log(city, this.state.greenPlaces);
             return pl.location_city.toLowerCase() === city.toLowerCase();
         });
        
@@ -92,7 +91,6 @@ export class GreenContextProvider extends React.Component {
 
     }
     render() {
-       console.log(this.state.categorySortPlaces, 'CATEGORY SORT RESULTS')
         const contextValue = {
             list: this.state.list,
             greenPlaces: this.state.greenPlaces,

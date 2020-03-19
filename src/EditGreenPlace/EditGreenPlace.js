@@ -41,7 +41,7 @@ export default class EditGreenPlace extends React.Component {
 
     componentDidMount = () => {
         let place_id = this.props.match.params.placeId
-        console.log(place_id, this.props, 'PROPPPPPPPPPPPPP');
+        
         GreenCalls.getGreenPlaceById(place_id)
             .then(place => {
                 console.log(place)
@@ -77,14 +77,11 @@ export default class EditGreenPlace extends React.Component {
     }
 
     handleThumbChange = (e) => {
-        // e.preventDefault()
         const name = e.target.value
         
         this.setState(prevState => ({
         [name]: !prevState[name]
         }))
-
-        console.log(name, 'GOT IT??????')
     }
 
     handleComments = (e) => {
@@ -121,7 +118,7 @@ export default class EditGreenPlace extends React.Component {
         }
         let finalThumbList = EditHelper.changeThumbIntoNUM(updatedThumbs)
         
-        console.log(finalThumbList)
+        
         const updatedReview = {
             ...this.state.placeInfo,
             checkedThumbs: finalThumbList,
@@ -146,13 +143,12 @@ export default class EditGreenPlace extends React.Component {
     
         const { id, yelpId, name, img_url, url, yelprating, location_str, location_city, location_zip, location_st, displayphone, category, } = this.state.placeInfo;
 
-        console.log(this.state.placeInfo)
         let checkingBoxes = [];
         for (let [key, value] of Object.entries(this.state)) {
             if (value === true) {
                 console.log('found it', key)
                 checkingBoxes.push((
-                    <div>
+                    <div key={`${key}`}>
                     <input className='input' type='checkbox' value={`${key}`} onClick={this.handleThumbChange} checked={this.state[`${key}`]} />
                     <label htmlFor='chx1'>{`${key}`}</label>
                     <br />
@@ -160,7 +156,7 @@ export default class EditGreenPlace extends React.Component {
                 ))
             } else if (value === false){
                 checkingBoxes.push((
-                    <div>
+                    <div key={`${key}`}>
                     <input className='input' type='checkbox' value={`${key}`} onClick={this.handleThumbChange} checked={this.state[`${key}`]} />
                     <label htmlFor='chx1'>{`${key}`}//////not checked</label>
                     <br />
@@ -189,19 +185,19 @@ export default class EditGreenPlace extends React.Component {
                     <h3>Reward worthy habits!:</h3>
                     {checkingBoxes}
                    
-                    <h3>Additional comments</h3>
-                    <textarea rows="10" cols='50' onChange={this.handleComments} >
-                    <div contentEditable='true' >{this.state.comments}</div>
-                    </textarea>
+                    {/* <h3>Additional comments</h3>
+                    {/* <textarea rows="10" cols='50' onChange={this.handleComments} > //value=this.state.comment */}
+                   {/* {this.state.comments}
+                    </textarea> */} 
                     
 
                     <h2>Save in category: </h2>
                     <select onChange={this.handleCategory} required>
                     <option value=" ">Choose one </option>
-                    <option value="Coffee-shops">Coffee-shops</option>
-                    <option value="Bakeries">Bakeries</option>
-                    <option value="Juice-Bar">Juice-Bars</option>
-                    <option value="Resturants">Restaurants</option>
+                    <option value="Coffee-shop">Coffee-shop</option>
+                    <option value="Bakery">Bakery</option>
+                    <option value="Juice-Bar">Juice-Bar</option>
+                    <option value="Restaurant">Restaurant</option>
                     <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
                     <option value="Dinner">Dinner</option>

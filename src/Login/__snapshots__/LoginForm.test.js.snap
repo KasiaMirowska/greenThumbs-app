@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component renders UI as expected 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      id="username"
+      placeholder="username"
+      type="input"
+    />
+    <input
+      id="password"
+      placeholder="password"
+      type="password"
+    />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

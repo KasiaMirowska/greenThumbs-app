@@ -2,11 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import TokenService from '../Services/token-service';
 import config from '../config';
-
+import './ListItem.css';
 
 export default function ListItem(props) {
        
         return (
+            <div className='list-item'>
             <li key={props.id}>
                 <h2>{props.name}</h2>
                 <p>{props.location.address1}</p>
@@ -24,6 +25,7 @@ export default function ListItem(props) {
                 }
                
             </li>
+            </div>
         )
     
     

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component renders UI as expected 1`] = `
+<div
+  className="big-container"
+>
+  <div
+    className="smaller-header"
+  >
+    <h2>
+      GREEN
+      <span
+        className="thumbs"
+      >
+        thumbs
+      </span>
+      UP reviewed places: 
+    </h2>
+  </div>
+  <div
+    className="mid-container"
+  >
+    <div />
+    <section
+      className="section2"
+    >
+      <button
+        onClick={[Function]}
+      >
+        Back to full list
+      </button>
+    </section>
+  </div>
+  <ul
+    className="rev-list"
+  />
+</div>
+`;

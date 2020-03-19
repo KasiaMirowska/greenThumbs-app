@@ -1,0 +1,310 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component renders UI as expected 1`] = `
+<div>
+  <img />
+  <h2 />
+  <p />
+  <p />
+  <p />
+  <p />
+  <p />
+  <p />
+  <a
+    href="undefined"
+  >
+    <h2>
+      Visit
+    </h2>
+  </a>
+  <p>
+    Yelp rating:
+  </p>
+  <br />
+  <form
+    onSubmit={[Function]}
+  >
+    <h3>
+      Reward worthy habits!:
+    </h3>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="No single use plastic"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        No single use plastic
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Compostable take-out containers and cups"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Compostable take-out containers and cups
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="No plastic bottled drinks"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        No plastic bottled drinks
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Composting food scraps"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Composting food scraps
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Recycle and compost bins inside"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Recycle and compost bins inside
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Hemp based or fabric napkins and paper towels"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Hemp based or fabric napkins and paper towels
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Papperless, fully computer based billing and record keeping"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Papperless, fully computer based billing and record keeping
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Donating leftover food to local shelter or \\"free meal night\\""
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Donating leftover food to local shelter or "free meal night"
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Locally sourced produce"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Locally sourced produce
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Organic produce"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Organic produce
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Resposible frying oil disposal"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Resposible frying oil disposal
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Saves energy by installing light timers and motion sensors"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Saves energy by installing light timers and motion sensors
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Saves water by installing low flow faucets"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Saves water by installing low flow faucets
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <div>
+      <input
+        checked={false}
+        className="input"
+        onClick={[Function]}
+        type="checkbox"
+        value="Saves energy and water by installing energy star equipmnet"
+      />
+      <label
+        htmlFor="chx1"
+      >
+        Saves energy and water by installing energy star equipmnet
+        //////not checked
+      </label>
+      <br />
+    </div>
+    <h2>
+      Save in category: 
+    </h2>
+    <select
+      onChange={[Function]}
+      required={true}
+    >
+      <option
+        value=" "
+      >
+        Choose one 
+      </option>
+      <option
+        value="Coffee-shop"
+      >
+        Coffee-shop
+      </option>
+      <option
+        value="Bakery"
+      >
+        Bakery
+      </option>
+      <option
+        value="Juice-Bar"
+      >
+        Juice-Bar
+      </option>
+      <option
+        value="Restaurant"
+      >
+        Restaurant
+      </option>
+      <option
+        value="Breakfast"
+      >
+        Breakfast
+      </option>
+      <option
+        value="Lunch"
+      >
+        Lunch
+      </option>
+      <option
+        value="Dinner"
+      >
+        Dinner
+      </option>
+    </select>
+    <br />
+    <button
+      type="submit"
+    >
+      Update Review
+    </button>
+  </form>
+</div>
+`;

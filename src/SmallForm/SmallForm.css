@@ -1,0 +1,57 @@
+.small-form {
+    /* background-color: cornsilk; */
+    color: rgb(43, 90, 43);
+    width: 85%;
+    margin: auto;
+
+}
+
+.form__field {
+    font-family: inherit;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1rem;
+    color: grey;
+    padding: 7px 0; 
+    background: white;  
+    padding-left: 5px;
+    border-radius: 5px;
+    height: 30px;
+    margin: auto;
+   
+  }
+  placeholder {
+      color: transparent; 
+      padding-left: 5px;
+    }
+
+
+
+
+  @media (min-width: 600px) {
+   
+    .small-form {
+        width: 85%;
+        margin: auto;
+        padding-bottom: 5%;
+    }
+    .form {
+        width: 40%;
+        margin: auto;
+        margin-left: 50%;
+        /* padding: 30px;   */
+    }
+    
+    .form__field {
+        width: 50%; 
+    }
+    .button-container {
+        margin: auto;
+        vertical-align: bottom;
+        margin-left: 50%;
+    }
+}  
+
+
+   
