@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "name": "green-thumbs-up",
+    "alias": "kasia-green-thumbs-up",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+      ]
+  }
