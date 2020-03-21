@@ -134,7 +134,6 @@ export default class ReviewedList extends React.Component {
                                 {
                                     userSelection ? null :
                                         <section className='section2' >
-                                            <h2>or</h2>
                                             <button disabled={this.context.userSelection === false} >Show only my reviews</button>
                                         </section>
                                 }

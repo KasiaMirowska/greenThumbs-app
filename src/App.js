@@ -11,29 +11,34 @@ import ReviewForm from './ReviewForm/ReviewForm';
 import ReviewedList from './ReviewedList/ReviewedList';
 import GreenPlace from './GreenPLaceFullCard/GreenPlace';
 import EditReview from './EditGreenPlace/EditGreenPlace';
-import UserSort from './ReviewedList/UserSort';
-
+import Footer from './Header/Footer';
+import SearchBar from './SearchBar/SearchBar';
 
 export default class App extends React.Component {
   render() {
+    
     return (
       <div>
 
 
-        <header className="App-header">
+        <header>
           <Route path='/' component={Nav} />
           <Route path='/' component={Header} />
+          <Route  path='/' component={SearchBar} />  
         </header>
-
+       
         <main>
-
-          <Route exact path='/' component={SmallForm} />
+       
+        <Route exact path='/search' component={SmallForm} />
+       
+       
+       
           <Route exact path='/' component={ReviewedList} />
 
           <Route path='/login' component={LoginPage} />
           <Route path='/register' component={RegisterPage} />
 
-         
+        
          
           <Route exact path='/user/places' component={ReviewedList} />
           
@@ -49,9 +54,9 @@ export default class App extends React.Component {
 
           <Route exact path='/reviews/:location' component={ReviewedList} />
           <Route exact path='/reviews/:location' component={List} />
-
+         
         </main>
-
+        <Route path='/' component={Footer} />
       </div>
     );
   };

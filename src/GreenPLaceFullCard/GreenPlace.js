@@ -42,7 +42,7 @@ export default withRouter(class GreenPlace extends React.Component {
 
         let placeId = Number(this.props.match.params.placeId);
         let yelpId = this.props.match.params.yelpId;
-        
+        console.log(this.context.greenPlaces, 'CONTEXT');
         const selectedPlace = this.context.greenPlaces.find(pl => pl.yelp_id === yelpId)
       
         const { name, img, url, yelp_rating, location_str, location_city, location_zip, location_st, display_phone, green_reviews_count, category, review } = selectedPlace;

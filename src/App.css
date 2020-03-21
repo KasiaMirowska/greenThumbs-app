@@ -1,21 +1,31 @@
 * {
     box-sizing: border-box;
+    /* color: rgb(49, 70, 49); */
+}
+header {
+    width: 100%;
+    padding: 30px;
+    background-color: rgb(39, 17, 8);
+    background-color: rgb(34, 27, 11);
+    /* background-color: whitesmoke;  */
+    font-family: 'Anton', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+   
 }
 body {
-    background-color: rgb(2, 49, 63);
+    background-color: rgb(34, 51, 3);
     background-position: right bottom, left top; 
     background-size: cover; 
     /* background-size: 100%; */
     /* background-repeat: no-repeat; */
-    background-image: url(https://green-images.s3.amazonaws.com/Image+URL.jpg) ;
+    /* background-image: url(https://green-images.s3.amazonaws.com/Image+URL.jpg) ; */
     color: rgb(19, 87, 19);
 }
 
 main {
-   
-    width: 70%;
-    margin: auto;
-    background-color: rgba(204, 255, 238, 0.5);
+    width: 100%;
+    background-color: rgba(204, 255, 238, 0.5); 
     padding-bottom: 50px;
     font-family: 'Dosis', sans-serif;
     font-family: 'Anton', sans-serif;
@@ -43,7 +53,7 @@ button {
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    margin: 20px;
+    margin: 10px;
    
 }
 
@@ -59,6 +69,18 @@ img {
 }
 
 @media (min-width: 600px) {
-    
-   
-  }  
+    header {
+      width: 80%;
+      margin: auto;
+     
+      /* padding : 50px; */
+      /* padding-bottom: 70px; */
+     } 
+    main {
+        width: 70%;
+        margin:auto,
+    }
+    button {
+        margin: 20px;
+    }
+    }

@@ -40,7 +40,6 @@ export default class ReviewForm extends React.Component {
         e.preventDefault();
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id);
-        const reviewCount = 0;
       
         const newReviewedPlace = {
             yelp_id: this.props.match.params.id,
