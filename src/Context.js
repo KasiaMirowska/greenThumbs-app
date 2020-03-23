@@ -1,5 +1,4 @@
-import React, { createContext } from 'react';
-//import STORE from './dummyData';
+import React from 'react';
 
 const GreenContext = React.createContext({
     list: [],
@@ -12,6 +11,9 @@ const GreenContext = React.createContext({
     categorySelection: Boolean,
     citySortPlaces: [],
     categorySortPlaces: [],
+    //error: null,
+    setError: () => {},
+    resetError: () => {},
     setList: () => { },
     setCurrentUser: ()=> {},
     setUserSelection: () => {},
@@ -36,9 +38,20 @@ export class GreenContextProvider extends React.Component {
             currentUser:null,
             citySortPlaces: [],
             categorySortPlaces: [],
+            error: null,
         }
     }
 
+    setError = (err) => {
+        this.setState({
+            error: err
+        })
+    }
+    resetError = () => {
+        this.setState({
+            error: null,
+        })
+    }
     setList = data => {
         this.setState({
             list: data,
@@ -91,6 +104,7 @@ export class GreenContextProvider extends React.Component {
 
     }
     render() {
+        
         const contextValue = {
             list: this.state.list,
             greenPlaces: this.state.greenPlaces,
@@ -102,12 +116,15 @@ export class GreenContextProvider extends React.Component {
             categorySelection: this.state.categorySelection,
             currentUser: this.state.currentUser,
             userSort: this.userSort,
+            setError: this.setError,
+            resetError: this.resetError,
             setList: this.setList,
             setGreenPlaces: this.setGreenPlaces,
             setCurrentUser: this.setCurrentUser,
             setUserSelection: this.setUserSelection,
             citySort: this.citySort,
             categorySort: this.categorySort,
+            error: this.state.error,
         };
         return (
             <GreenContext.Provider value={contextValue} >

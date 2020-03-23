@@ -1,0 +1,45 @@
+.text-area1{
+    /* flex: 1; */
+    padding-top: 40px;
+    margin-right: 2%;
+    margin-left: 2%;
+    list-style: none;
+}
+.medium-img-container {
+   max-width: 30%;
+   flex: 1;
+    margin-top: 5%;
+}
+
+#S {
+    color: rgb(151, 65, 15);
+}
+img {
+    max-width: 100%;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+.thumb-list {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.text-area2 {
+    margin-right: 4%;
+    margin-left: 6%;
+    padding-bottom: 50px;
+}
+
+#comments {
+    border: 1px solid green;
+    padding: 30px;
+}
+/* @media (min-width:600) {
+
+    .medium-img-container2 {
+        max-width: 30%;
+        flex: 1;
+        margin-top: 5%;
+    }
+} */

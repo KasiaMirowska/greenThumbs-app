@@ -31,7 +31,7 @@ export default class ReviewForm extends React.Component {
 
     handleCategory = (e) => {
         e.preventDefault();
-        console.log(e.target.value, 'CATEGORY')
+        //console.log(e.target.value, 'CATEGORY')
         this.setState({
             category: e.target.value,
         })
@@ -41,7 +41,7 @@ export default class ReviewForm extends React.Component {
         e.preventDefault();
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id);
-        console.log(currentPlace.image_url, currentPlace.img_url)
+
         const newReviewedPlace = {
             yelp_id: this.props.match.params.id,
             name: currentPlace.name,
@@ -57,29 +57,18 @@ export default class ReviewForm extends React.Component {
             checkedThumbs: this.state.selection,
             review: this.state.comments,
         }
-       
+
         GreenCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
             .then(data => {
-                console.log(data, 'SAVED????', data.id)
+                console.log(data, 'SAVED????', data, newReviewedPlace)
                 this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
             })
             .catch(err => {
+                console.log(err)
                 this.setState({
                     error: err
                 })
             })
-
-        // GreenCalls.checkReviewCount(currentPlace.id)
-        // .then(count => {
-        //     console.log(count)
-        //     reviewCount = Number(count)
-        // })
-        // .catch(err => {
-        //     this.setState({
-        //         error: err
-        //     })
-        // })
-        // console.log(reviewCount, 'REVIEWCOUNT!!!!!')
 
     }
     handleBack = () => {
@@ -87,26 +76,27 @@ export default class ReviewForm extends React.Component {
     }
 
     render() {
+        console.log(this.state.error, 'kkkkkkkk')
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id)
-
+        //console.log(id, this.context.list, 'CCCCCCCCCCCCCCCC', currentPlace)
         return (
             <div className='item'>
                 <div className='img-container'>
-                    <img src={currentPlace.image_url} />
+                    <img src={currentPlace.image_url} alt='food presentation from the place'/>
                 </div>
 
                 <div className='item-text'>
-                    
+
                     <div className='text-area'>
                         <h2>{currentPlace.name}</h2>
+                        <br />
                         <p>{currentPlace.location.address1}, {currentPlace.location.city}</p>
                         <p>{currentPlace.location.state} {currentPlace.location.zip_code}</p>
                         <br />
                         <p>{currentPlace.display_phone}</p>
                         <p>Price-range: {currentPlace.price}</p>
-
-                        <a href={`${currentPlace.url}`}><h3>Visit</h3></a>
+                        <br />
 
                         <div className='rating-box'>
                             <p>Yelp rating: </p>
@@ -180,26 +170,29 @@ export default class ReviewForm extends React.Component {
                             <textarea rows="10" cols='50' onChange={this.handleComments} ></textarea>
                             <br />
 
-                          <div className='select-box'>
-                            <h3 id='select-header' >Save in category: </h3>
-                            <select className="form__field2" onChange={this.handleCategory} required>
-                                <option value=" ">Select category </option>
-                                <option value="Coffee-shop">Coffee-shops</option>
-                                <option value="Bakery">Bakeries</option>
-                                <option value="Juice-Bar">Juice-Bars</option>
-                                <option value="Restaurant">Restaurants</option>
-                                <option value="Breakfast">Breakfast</option>
-                                <option value="Lunch">Lunch</option>
-                                <option value="Dinner">Dinner</option>
+                            <div className='select-box'>
+                                <h3 id='select-header' >Save in category: </h3>
+                                <select className="form__field2" onChange={this.handleCategory} required>
+                                    <option value=" ">Select category </option>
+                                    <option value="Coffee-shop">Coffee-shops</option>
+                                    <option value="Bakery">Bakeries</option>
+                                    <option value="Juice-Bar">Juice-Bars</option>
+                                    <option value="Restaurant">Restaurants</option>
+                                    <option value="Breakfast">Breakfast</option>
+                                    <option value="Lunch">Lunch</option>
+                                    <option value="Dinner">Dinner</option>
 
-                            </select>
+                                </select>
                             </div>
-                           <br />
+                            <br />
 
-                           <br />
+                            <br />
+                            <div className='error'>
+                                {this.state.error ? this.state.error.message : null}
+                            </div>
                             <div className='button-container2'>
-                            <button>Post Review</button>
-                            <button onClick={this.handleBack}>Back</button>
+                                <button>Post Review</button>
+                                <button onClick={this.handleBack}>Back</button>
                             </div>
                         </form>
                     </div>

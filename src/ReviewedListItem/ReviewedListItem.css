@@ -14,11 +14,14 @@
     background-color: whitesmoke;
     margin-bottom: 30px;
     width: 95%;
+    background-color:rgb(230, 251, 245) ;
     
 }
 .li {
     margin:auto;
     width: 95%;
+    text-decoration: none;
+    list-style: none;
 }
 .text {
     margin-left: 3%;

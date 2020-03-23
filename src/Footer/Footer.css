@@ -1,0 +1,28 @@
+.footer {
+    background-color: rgb(24, 42, 10);    
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-top: 30px;
+    color: rgb(168, 202, 117);
+}
+.scroll-to-top {
+    /* padding: 5px; */
+}
+.footer-text {
+    padding-bottom: 15px;
+
+}
+.anim {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .anim:hover,
+  .anim:focus {
+  text-decoration: none;
+  }

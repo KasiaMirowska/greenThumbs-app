@@ -11,7 +11,7 @@ import ReviewForm from './ReviewForm/ReviewForm';
 import ReviewedList from './ReviewedList/ReviewedList';
 import GreenPlace from './GreenPLaceFullCard/GreenPlace';
 import EditReview from './EditGreenPlace/EditGreenPlace';
-import Footer from './Header/Footer';
+import Footer from './Footer/Footer';
 import SearchBar from './SearchBar/SearchBar';
 
 export default class App extends React.Component {

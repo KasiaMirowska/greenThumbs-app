@@ -26,14 +26,15 @@ main {
     
     width: 100%;
     background-color: rgba(204, 255, 238, 0.5); 
-    padding-bottom: 50px;
+    /* background-color: rgba(188, 224, 191, 0.5);  */
+    padding-bottom: 0px; 
     font-family: 'Dosis', sans-serif;
     font-family: 'Anton', sans-serif;
     font-family: 'Indie Flower', cursive;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Oswald', sans-serif;
     /* background-image: url(https://green-images.s3.amazonaws.com/AdobeStock_310919150.jpeg); */
-    
+    margin-bottom: 0;
 }
 
 a {
@@ -71,17 +72,19 @@ img {
 ul, p , h3, h2 { 
     margin: 0;
     padding: 0;
-    list-style-type: none;
+    
     /* display: inline; */
   }
 
 .error {
 min-height: 22px;
-color: red;
+color: rgb(172, 25, 6);
 font-size: larger;
-padding: 10px;
-} 
 
+} 
+.disabled {
+    background-color: grey;
+}
 
 @media (min-width: 600px) {
     header {

@@ -5,6 +5,7 @@ import './EditGreenPlace.css';
 import EditHelper from './EditHelper';
 import YelpRating from '../YelpRating/YelpRating';
 import './EditGreenPlace.css';
+import { animateScroll as scroll } from 'react-scroll'
 
 export default class EditGreenPlace extends React.Component {
     static contextType = GreenContext;
@@ -42,23 +43,13 @@ export default class EditGreenPlace extends React.Component {
 
     componentDidMount = () => {
         let place_id = this.props.match.params.placeId
-
+        scroll.scrollToTop();
         GreenCalls.getGreenPlaceById(place_id)
             .then(place => {
                 this.setState({
                     placeInfo: place,
                     comments: place.review,
                 })
-
-                //    Object.keys(this.state.categories).forEach(category => {
-                //        if(category === place.category) {
-                //         this.setState(prevState => ({
-                //             categories:{
-                //                 [category]: !prevState[category]
-                //             }   
-                //         }))
-                //        }
-                //    });
 
                 place.checkedThumbs.forEach(thumb => {
                     if (Object.keys(this.state).includes(thumb)) {
@@ -96,11 +87,6 @@ export default class EditGreenPlace extends React.Component {
 
     handleCategory = (e) => {
         e.preventDefault();
-        //const category = e.target.value
-
-        // this.setState(prevState => ({
-        // [category]: !prevState[category]
-        // }))
         this.setState({
             placeInfo: {
                 ...this.state.placeInfo,
@@ -125,7 +111,7 @@ export default class EditGreenPlace extends React.Component {
             ...this.state.placeInfo,
             checkedThumbs: finalThumbList,
         }
-        console.log(updatedReview, 'UPDATED REVIEW')
+
         let place_id = this.props.match.params.placeId
 
         try {
@@ -148,13 +134,7 @@ export default class EditGreenPlace extends React.Component {
 
     render() {
         console.log(this.state, 'YO YO YO')
-        const { id, yelpId, name, img_url, url, yelp_rating, location_str, location_city, location_zip, location_st, displayphone, category, review } = this.state.placeInfo;
-
-        // let type;
-        // if(category) {
-        //     type = category[0].toUpperCase(); 
-        // }
-        // // const type = this.state.placeInfo.category.toUpperCase()
+        const { name, img_url, yelp_rating, location_str, location_city, location_zip, location_st, displayphone, category, review } = this.state.placeInfo;
 
         let checkingBoxes = [];
         for (let [key, value] of Object.entries(this.state)) {
@@ -182,24 +162,26 @@ export default class EditGreenPlace extends React.Component {
         return (
             <div className='item'>
                 <div className='items-box'>
-
-                    <div className='text-area'>
+                    <div className='medium-img-container'>
+                        <img src={img_url} alt='food presentation from the place'/>
+                    </div>
+                    <div className='text-area1'>
                         <h2>{name}</h2>
                         <p>{location_str}, {location_city}</p>
                         <p>{location_st} {location_zip}</p>
+                        <br />
                         <p>{displayphone}</p>
                         <br />
                         <p>Saved in category: {category}</p>
                         <br />
-                        <a href={`${url}`}><h3>Visit</h3></a>
+                        <br />
+
                         <div className='rating-box'>
                             <p>Yelp rating: </p>
                             <YelpRating rating={yelp_rating} />
                         </div>
                     </div>
-                    <div className='img-container2'>
-                        <img src={img_url} />
-                    </div>
+
                 </div>
                 <br />
                 <form className='edit-form' onSubmit={(e) => this.handleUpdateReview(e)}>
@@ -227,6 +209,9 @@ export default class EditGreenPlace extends React.Component {
                     </select>
 
                     <br />
+                    <div className='error'>
+                        {this.state.error ? this.state.error.message : null}
+                    </div>
                     <div className='button-container2'>
                         <button type='submit' >Update Review</button>
                         <button onClick={this.handleBack}>Back</button>

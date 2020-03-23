@@ -7,10 +7,10 @@ import './List.css';
 export default class List extends React.Component {
     static contextType = GreenContext;
     render() {
-       console.log(this.context.list)
+       
         let { list } = this.context;
         list = list.map(item => {
-            console.log(item.image_url)
+
             return (
                 <ListItem
                     key={item.id}

@@ -1,6 +1,5 @@
 import React from 'react';
 import GreenContext from '../Context';
-import ReviewedListItem from '../ReviewedListItem/ReviewedListItem';
 import './ReviewedList.css';
 import GreenCalls from '../Services/GreenCalls';
 import ListHelpers from './ListHelpers';
@@ -19,10 +18,9 @@ export default class ReviewedList extends React.Component {
     }
 
     componentDidMount = () => {
-        console.log('remounting?')
-        GreenCalls.getAllGreenPlacesByUser()
+        if (TokenService.getAuthToken()) {
+            GreenCalls.getAllGreenPlacesByUser()
             .then(res => {
-                console.log(res, res[0], 'USER PLACES');
                 this.context.setCurrentUser(res[0].userid);
                 this.context.userSort(res);
             })
@@ -31,24 +29,24 @@ export default class ReviewedList extends React.Component {
                     error: err
                 });
             });
+        }
         GreenCalls.getAllReviewedPlaces()
             .then(data => {
-                console.log(data, 'DDDDDDDDDDDDD')
                 this.context.setGreenPlaces(data);
             })
             .then(() => {
                 if (this.context.userSelection === true) {
                     this.setState({
                         reviews: ListHelpers.sortDisplay(this.context.userPlaces)
-                    })
+                    });
                 } else if (this.context.citySelection === true) {
                     this.setState({
                         reviews: ListHelpers.sortDisplay(this.context.citySortPlaces)
-                    })
+                    });
                 } else if (this.context.categorySelection === true) {
                     this.setState({
                         reviews: ListHelpers.sortDisplay(this.context.categorySortPlaces)
-                    })
+                    });
                 }
                 else {
                     this.setState({
@@ -58,14 +56,28 @@ export default class ReviewedList extends React.Component {
 
             })
             .catch(err => {
-                this.setState({
-                    error: err
-                });
-            })
+                if(err) {
+                    this.setState({
+                        error: err.error.message,
+                    });
+                }
+                
+            });
 
     }
 
     userSort = (e) => {
+        GreenCalls.getAllGreenPlacesByUser()
+            .then(res => {
+                this.context.setCurrentUser(res[0].userid);
+                this.context.userSort(res);
+            })
+            .catch(err => {
+                console.log(err, 'ERRRRRRRRRRRRR')
+                this.setState({
+                    error: err
+                });
+            });
         this.props.history.push('/user/places');
         this.context.setUserSelection(true);
     }
@@ -87,19 +99,22 @@ export default class ReviewedList extends React.Component {
     }
 
     handleBackButton = (e) => {
-        this.props.history.push('/')
+        this.props.history.push('/');
         window.location.reload();
     }
 
 
     render() {
         const { userSelection, citySelection, categorySelection } = this.context;
-        
+        console.log(this.state.reviews, 'PLACES IN REVIEWD LIST STATE')
 
         return (
             <div className='big-container list'>
                 <div className='smaller-header'>
                     <h2>GREEN<span className='thumbs'>thumbs</span>UP reviewed places: </h2>
+                </div>
+                <div className='error'>
+                    {this.state.error ? this.state.error : null}
                 </div>
                 <div className='mid-container'>
                     {
@@ -119,7 +134,7 @@ export default class ReviewedList extends React.Component {
                                     categorySelection ? null :
                                         <section className='section3' >
                                             <h3>Sort reviews by category</h3>
-                                            <select className="form__field" disabled={this.context.categorySelection === false}  className='disabled' className="form__field">
+                                            <select className="form__field" disabled={this.context.categorySelection === false}  className="form__field  disabled">
                                                 <option value=" ">Choose one </option>
                                                 <option value="Coffee-shop">Coffee-shops</option>
                                                 <option value="Bakery">Bakeries</option>

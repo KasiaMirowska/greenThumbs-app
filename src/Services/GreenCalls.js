@@ -4,7 +4,6 @@ import TokenService from '../Services/token-service';
 const GreenCalls = {
     getAllReviewedPlaces: () => {
         const URL = config.API_ENDPOINT + '/';
-        console.log(URL);
         return fetch(URL)
             .then(res => {
                 if (!res.ok) {
@@ -13,8 +12,7 @@ const GreenCalls = {
                             console.log(err);
                             throw new Error(err.error.message);
                         })
-                }
-                console.log(res);
+                };
                 return res;
             })
             .then(res => res.json());
@@ -27,11 +25,9 @@ const GreenCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err);
                             throw new Error(err.error.message);
                         })
-                }
-                console.log(res);
+                };
                 return res;
             })
             .then(res => res.json());
@@ -39,7 +35,7 @@ const GreenCalls = {
 
     postNewReview: (placeId, newPlace) => {
         const URL = config.API_ENDPOINT + `/${placeId}/review`;
-        console.log(URL, newPlace);
+        // console.log(URL, newPlace);
         return fetch(URL, {
             method: 'POST',
             headers: {
@@ -55,8 +51,7 @@ const GreenCalls = {
                             console.log(err)
                             throw new Error(err.error.message)
                         })
-                }
-                console.log(res)
+                };
                 return res;
             })
             .then(res => res.json())
@@ -78,7 +73,7 @@ const GreenCalls = {
                             console.log(err)
                             throw new Error(err.error.message)
                         })
-                }
+                };
                 return res;
             })
             .then(res => res.json())
@@ -100,8 +95,7 @@ const GreenCalls = {
                             console.log(err)
                             throw new Error(err.error.message)
                         })
-                }
-                console.log(res)
+                };
                 return res;
             })
             .then(res => res.json())
@@ -111,7 +105,7 @@ const GreenCalls = {
 
     editGreenPlace: (placeId, updatedInfo) => {
         const URL = config.API_ENDPOINT + `/edit/${placeId}`;
-        console.log(URL)
+       
         return fetch(URL, {
             method: 'PATCH',
             headers: {
@@ -127,8 +121,7 @@ const GreenCalls = {
                             console.log(err)
                             throw new Error(err.error.message)
                         })
-                }
-                console.log(res)
+                };
                 return res;
             })
             .then(res => res.json())
@@ -147,13 +140,9 @@ const GreenCalls = {
                 if (!res.ok) {
                     console.log('error on delete')
                     throw new Error('error on delete')
-
-                }
-
+                };
             })
-
     },
-
 }
 
 export default GreenCalls;

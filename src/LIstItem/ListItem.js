@@ -9,19 +9,18 @@ import YelpRating from '../YelpRating/YelpRating';
 export default withRouter(class ListItem extends React.Component {
 
     handleReviewButton = () => {
-        const token = TokenService.hasAuthToken(config.TOKEN_KEY)
+        const token = TokenService.hasAuthToken(config.TOKEN_KEY);
         if (!token) {
             this.props.history.push("/login", { state: `/review/${this.props.id}` });
         } else {
-            this.props.history.push(`/review/${this.props.id}`)
+            this.props.history.push(`/review/${this.props.id}`);
         }
     }
     render() {
-        console.log(this.props, 'PROPS')
         return (
             <div className='list-item'>
                 <div className='img-container'>
-                    <img src={this.props.img_url} />
+                    <img src={this.props.img_url} alt='food presentation from the place'/>
                 </div>
                 <li key={this.props.id} className='li'>
                     <div className='text-area'>
@@ -49,5 +48,5 @@ export default withRouter(class ListItem extends React.Component {
                 <br />
             </div>
         );
-    }
+    };
 })

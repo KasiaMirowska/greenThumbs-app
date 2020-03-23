@@ -16,7 +16,7 @@ const ListHelpers = {
                         name={pl.name}
                         city={pl.location_city}
                         category={pl.category}
-                        thumbs={pl.checkedThumbs.length}
+                        checkedThumbs={pl.checkedThumbs}
                     />
                 </li>
             )
