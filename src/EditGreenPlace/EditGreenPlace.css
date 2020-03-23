@@ -1,13 +1,42 @@
-.checked {
-    color: red;
-    background-color: yellow;
+.img-container2 {
+    max-width: 70%;
+    margin: auto;
+    padding: 15px;
 }
-.res_card {
-    background-color: aqua;
+.items-box {
+    width:90%; 
+    padding-top: 20px; 
+    margin: auto;
 }
-.box {
-    width: 50%;
-    height: 30vh;
-    background-color: lightgrey;
-   
+.edit-form {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.text-area {
+    margin: auto;
+}
+@media(min-width:800) {
+    .img-container2 {
+        flex: 1;
+        display: flex;
+        max-width: 50%;
+        padding: 40px;
+    } 
+    .items-box {
+        display: flex;
+        padding-bottom: 40px;
+        padding: 30px;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+    .tex-area {
+        flex: 2;
+        justify-content: space-between;
+        margin-right: 5%;
+        margin-left: 5%;
+        list-style: none;
+    }
+    
 }

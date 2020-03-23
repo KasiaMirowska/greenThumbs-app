@@ -13,11 +13,7 @@ export default function SearchBar(props) {
     return (
         <div>
             <div className='bar'>
-
-
-                {(!TokenService.hasAuthToken(config.TOKEN_KEY)) ? null :
-                    <button className='yelp' type='button' onClick={handleSearch}>To add new places to our records, CLICK HERE</button>}
-
+                <button className='yelp' type='button' onClick={handleSearch}>To add new places to our records, CLICK HERE</button>
             </div>
             {/* <div className='bar2'>
 

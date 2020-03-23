@@ -23,6 +23,7 @@ export default class SmallForm extends React.Component {
         ProxyCalls.getThroughGreenThumbApi(term, location)
             .then(data => {
                 this.context.setList(data.businesses);
+                console.log(data)
                 this.props.history.push(`/list/${location}`);
             })
             .catch(err => {
@@ -48,15 +49,7 @@ export default class SmallForm extends React.Component {
     }
 
     render() {
-        // const options = [
-        //     {value:"coffee" , label:'Coffee-shops'},
-        //     {value:"bakery", label:'Bakeries'},
-        //     {value:"juice", label:'Juice-Bars'},
-        //     {value:"breakfast", label:'Breakfast'},
-        //     {value:"lunch", lable:'Lunch'},
-        //     {value:"dinner", label:'Dinner'}
-
-        // ]
+        
         return (
             <div className='small-form'>
 

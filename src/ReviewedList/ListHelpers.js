@@ -12,6 +12,7 @@ const ListHelpers = {
                     <ReviewedListItem
                         placeId={pl.id}
                         yelpId={pl.yelp_id}
+                        img={pl.img}
                         name={pl.name}
                         city={pl.location_city}
                         category={pl.category}

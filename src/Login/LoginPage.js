@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 export default class LoginPage extends React.Component {
     handleLogin = () => {
         const {location, history} = this.props;
-        const destination = (location.state || {}).from || '/';
+        const destination = (location.state || {}).state || '/';
         history.push(destination);
     }
 

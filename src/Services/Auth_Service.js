@@ -3,7 +3,7 @@ import config from '../config';
 
 const AuthCalls = {
     postLogin: (credentials) => {
-        console.log(credentials)
+        console.log(credentials, config.API_ENDPOINT)
         const URL = config.API_ENDPOINT + '/login';
         console.log(URL, JSON.stringify(credentials))
         return fetch(URL, {

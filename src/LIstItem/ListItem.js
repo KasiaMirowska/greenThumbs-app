@@ -1,33 +1,53 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import TokenService from '../Services/token-service';
 import config from '../config';
 import './ListItem.css';
+import YelpRating from '../YelpRating/YelpRating';
 
-export default function ListItem(props) {
-       
+
+export default withRouter(class ListItem extends React.Component {
+
+    handleReviewButton = () => {
+        const token = TokenService.hasAuthToken(config.TOKEN_KEY)
+        if (!token) {
+            this.props.history.push("/login", { state: `/review/${this.props.id}` });
+        } else {
+            this.props.history.push(`/review/${this.props.id}`)
+        }
+    }
+    render() {
+        console.log(this.props, 'PROPS')
         return (
             <div className='list-item'>
-            <li key={props.id}>
-                <h2>{props.name}</h2>
-                <p>{props.location.address1}</p>
-                <p>{props.location.city}</p>
-                <p>{props.location.state}</p>
-                <p>{props.location.zip_code}</p>
-                <p>{props.phone}</p>
-                <p>{props.price}</p>
-                <img src={props.img} />
-                <a href ={`${props.website }`} target="_blank" rel='noopener noreferrer'><h2>Visit</h2></a>
-                {props.rating}
+                <div className='img-container'>
+                    <img src={this.props.img_url} />
+                </div>
+                <li key={this.props.id} className='li'>
+                    <div className='text-area'>
+                        <h2>{this.props.name}</h2>
+                        <p>{this.props.itemLocation.address1}, {this.props.itemLocation.city} </p>
 
-                {(!TokenService.hasAuthToken(config.TOKEN_KEY))? <Link to={'/login'}><button>Create ThumbsUP review</button></Link> :
-                <Link to={`/review/${props.id}`}><button>Create ThumbsUP review</button></Link>
-                }
-               
-            </li>
+                        <p>{this.props.itemLocation.state} {this.props.itemLocation.zip_code}</p>
+                        <br />
+                        <p>{this.props.phone}</p>
+                        <p>Price-range: {this.props.price}</p>
+
+                        <a href={`${this.props.website}`} target="_blank" rel='noopener noreferrer'><h2>Visit</h2></a>
+                        <div className='rating-box'>
+                            <p>Yelp rating: </p>
+                            <YelpRating rating={this.props.rating} />
+                        </div>
+                    </div>
+                    <div className='button-container2'>
+
+                        <button className='review-button' onClick={this.handleReviewButton}>Create ThumbsUP review</button>
+
+                    </div>
+                </li>
+                <br />
+                <br />
             </div>
-        )
-    
-    
-}
-
+        );
+    }
+})

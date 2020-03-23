@@ -38,12 +38,13 @@
     .form {
         margin: auto;
         margin-left: 50%;
-        /* padding: 30px;   */
+        /* padding: 30px;    */
+        padding-top: 20px;
     }
     
     .form__field {
         width: 40%; 
-       margin-left: 3%;
+        margin-left: 3%;
     }
     .button-container {
         margin: auto;

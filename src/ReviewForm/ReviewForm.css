@@ -1,4 +1,56 @@
-.fancy-checkbox input[type="checkbox"],
-.fancy-checkbox .checked {
-    display: none;
+
+.item {
+    width:90%;
+    margin: auto;
+    margin-bottom: 30px;
+    background-color: whitesmoke;
+    padding-bottom: 20px;
+    color: rgb(49, 70, 49); 
+}
+
+.form__field2 {
+    font-family: inherit;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1rem;
+    color: grey;
+    background: white;  
+    padding-left: 5px;
+    border-radius: 5px;
+    height: 30px;
+    margin: auto;
+    width: 40%; 
+  }
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+label {
+    font-family: 'Montserrat', sans-serif;
+}
+input {
+    margin: 5px;
+}
+textarea {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 95%;
+    height: 20vh;
+}
+
+#select-header {
+    margin-bottom: 2%;
+}
+@media(min-width: 600) {
+    .item {
+        padding: 50px;
+        padding-bottom: 150px;
+    }
+    
+    textarea {
+        margin-top: 20px;
+        margin-bottom: 50px;
+        /* width: 40%; */
+    }
 }

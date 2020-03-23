@@ -22,7 +22,7 @@ export default class ReviewedList extends React.Component {
         console.log('remounting?')
         GreenCalls.getAllGreenPlacesByUser()
             .then(res => {
-                console.log(res, res[0].userid, 'USER PLACES');
+                console.log(res, res[0], 'USER PLACES');
                 this.context.setCurrentUser(res[0].userid);
                 this.context.userSort(res);
             })
@@ -33,6 +33,7 @@ export default class ReviewedList extends React.Component {
             });
         GreenCalls.getAllReviewedPlaces()
             .then(data => {
+                console.log(data, 'DDDDDDDDDDDDD')
                 this.context.setGreenPlaces(data);
             })
             .then(() => {
@@ -93,10 +94,10 @@ export default class ReviewedList extends React.Component {
 
     render() {
         const { userSelection, citySelection, categorySelection } = this.context;
-        console.log(this.state.reviews, 'STATE REVIEWS')
+        
 
         return (
-            <div className='big-container'>
+            <div className='big-container list'>
                 <div className='smaller-header'>
                     <h2>GREEN<span className='thumbs'>thumbs</span>UP reviewed places: </h2>
                 </div>
@@ -109,7 +110,7 @@ export default class ReviewedList extends React.Component {
                                         <section className='section' >
                                             <form className='form2' onSubmit={this.citySort} >
                                                 <input id='city' type='input' placeholder='enter city' className="form__field" />
-                                                <button type='submit' disabled={this.context.citySelection === false} >Sort by city</button>
+                                                <button type='submit' disabled={this.context.citySelection === false} className='disabled' >Sort by city</button>
                                             </form>
                                         </section>
                                 }
@@ -118,7 +119,7 @@ export default class ReviewedList extends React.Component {
                                     categorySelection ? null :
                                         <section className='section3' >
                                             <h3>Sort reviews by category</h3>
-                                            <select className="form__field" disabled={this.context.categorySelection === false} className="form__field">
+                                            <select className="form__field" disabled={this.context.categorySelection === false}  className='disabled' className="form__field">
                                                 <option value=" ">Choose one </option>
                                                 <option value="Coffee-shop">Coffee-shops</option>
                                                 <option value="Bakery">Bakeries</option>
@@ -134,7 +135,7 @@ export default class ReviewedList extends React.Component {
                                 {
                                     userSelection ? null :
                                         <section className='section2' >
-                                            <button disabled={this.context.userSelection === false} >Show only my reviews</button>
+                                            <button disabled={this.context.userSelection === false} className='disabled' >Show only my reviews</button>
                                         </section>
                                 }
                             </div>

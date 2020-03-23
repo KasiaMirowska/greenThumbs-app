@@ -10,11 +10,10 @@ header {
     /* background-color: whitesmoke;  */
     font-family: 'Anton', sans-serif;
     font-family: 'Oswald', sans-serif;
-    margin: 0;
-   
+    margin: 0; 
 }
 body {
-    background-color: rgb(34, 51, 3);
+    background-color: rgb(50, 75, 3);
     background-position: right bottom, left top; 
     background-size: cover; 
     /* background-size: 100%; */
@@ -24,6 +23,7 @@ body {
 }
 
 main {
+    
     width: 100%;
     background-color: rgba(204, 255, 238, 0.5); 
     padding-bottom: 50px;
@@ -45,7 +45,7 @@ a {
 
 button {
    
-    background-color: green;
+    background-color: rgb(39, 134, 10);
     border: 0px;
     padding: 10px;
     padding-left : 25px;
@@ -54,9 +54,10 @@ button {
     font-family: 'Montserrat', sans-serif;
     color: white;
     margin: 10px;
-   
 }
-
+.disabled {
+    background-color: rgb(85, 98, 87);
+}
 input, h2, ul {
     margin: 0;
     padding: 0;
@@ -67,6 +68,20 @@ img {
     margin: auto;
     display: block;
 }
+ul, p , h3, h2 { 
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    /* display: inline; */
+  }
+
+.error {
+min-height: 22px;
+color: red;
+font-size: larger;
+padding: 10px;
+} 
+
 
 @media (min-width: 600px) {
     header {

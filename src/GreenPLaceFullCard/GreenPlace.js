@@ -30,11 +30,6 @@ export default withRouter(class GreenPlace extends React.Component {
 
     }
 
-    // handleUserIdentityBeforeDeleteAndPost = () => {
-    //     let token = TokenService.getAuthToken()
-    //     let user = TokenService.verifyJWT(token)
-    //     console.log(user, token)
-    // }
 
     render() {
         // this.handleUserIdentityBeforeDeleteAndPost()
@@ -72,8 +67,13 @@ export default withRouter(class GreenPlace extends React.Component {
         
         return (
 
-            <div>
-                <img src={img} />
+            <div className='list-item'>
+
+<div className='img-container'>
+                     <img src={img} />
+                </div>
+                
+                <div className='text-area'>
                 {currentUsersPlace ?
                     <section>
                         <Link to={`/edit/${placeId}/`}>
@@ -84,9 +84,9 @@ export default withRouter(class GreenPlace extends React.Component {
                     :
                     <section>
                         <Link to={`/edit/${placeId}/`} >
-                            <button disabled={!currentUsersPlace}>Edit review</button>
+                            <button disabled={!currentUsersPlace} className='disabled'>Edit review</button>
                         </Link>
-                        <button type='button' disabled={!currentUsersPlace} >delete</button>
+                        <button type='button' disabled={!currentUsersPlace} className='disabled'>delete</button>
                         <h4>Please login to place a review or delete </h4>
                     </section>
                 }
@@ -110,6 +110,7 @@ export default withRouter(class GreenPlace extends React.Component {
                     {practicesList}
                 </ul>
 
+            </div>
             </div>
         )
     }
