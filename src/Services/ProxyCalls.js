@@ -14,7 +14,6 @@ const ProxyCalls = {
             if(!res.ok) {
                 return res.json()
                 .then(err => {
-                    console.log(err);
                     throw new Error(err.error.message);
                 });
                 

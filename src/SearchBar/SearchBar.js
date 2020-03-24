@@ -14,5 +14,5 @@ export default function SearchBar(props) {
                 <button className='yelp' type='button' onClick={handleSearch}>To add new places to our records, CLICK HERE</button>
             </div>
         </div>
-    )
+    );
 }

@@ -19,7 +19,6 @@ const TokenService = {
         return window.btoa(`${userName}:${password}`);
     },
     verifyJWT(token) {
-        console.log(token, 'TTTTTTTTT');
         return jwt.verify(token, config.JWT_SECRET, {algorithms: ['HS256']});
     },
 }

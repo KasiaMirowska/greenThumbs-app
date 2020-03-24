@@ -22,7 +22,6 @@ export default withRouter(class GreenPlace extends React.Component {
         let placeId = Number(this.props.match.params.placeId);
         GreenCalls.deleteGreenPlace(placeId)
             .then(() => {
-                console.log('review deleted')
                 this.props.history.push('/')
             })
             .catch(err => {

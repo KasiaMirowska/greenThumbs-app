@@ -63,7 +63,6 @@ export class GreenContextProvider extends React.Component {
         });
     }
     setCurrentUser =(id) => {
-        console.log(id, 'USERID')
         this.setState({
             currentUser: id,
         })
@@ -93,7 +92,6 @@ export class GreenContextProvider extends React.Component {
 
     categorySort = category => {
         let reviews = this.state.greenPlaces.filter(pl => {
-            console.log(category, pl.category);
             return pl.category === category;
         });
        

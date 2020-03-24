@@ -9,7 +9,6 @@ const GreenCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err);
                             throw new Error(err.error.message);
                         })
                 };
@@ -35,7 +34,6 @@ const GreenCalls = {
 
     postNewReview: (placeId, newPlace) => {
         const URL = config.API_ENDPOINT + `/${placeId}/review`;
-        // console.log(URL, newPlace);
         return fetch(URL, {
             method: 'POST',
             headers: {
@@ -48,7 +46,6 @@ const GreenCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
                             throw new Error(err.error.message)
                         })
                 };
@@ -70,7 +67,6 @@ const GreenCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
                             throw new Error(err.error.message)
                         })
                 };
@@ -92,7 +88,6 @@ const GreenCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
                             throw new Error(err.error.message)
                         })
                 };
@@ -118,7 +113,6 @@ const GreenCalls = {
                 if (!res.ok) {
                     return res.json()
                         .then(err => {
-                            console.log(err)
                             throw new Error(err.error.message)
                         })
                 };
@@ -138,7 +132,6 @@ const GreenCalls = {
         })
             .then(res => {
                 if (!res.ok) {
-                    console.log('error on delete')
                     throw new Error('error on delete')
                 };
             })

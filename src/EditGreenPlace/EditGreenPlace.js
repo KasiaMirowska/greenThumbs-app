@@ -60,7 +60,6 @@ export default class EditGreenPlace extends React.Component {
                 })
             })
             .catch(err => {
-                console.log(err)
                 this.setState({
                     error: err,
                 })
@@ -76,7 +75,6 @@ export default class EditGreenPlace extends React.Component {
     }
 
     handleComments = (e) => {
-        console.log(e.target.value, 'VALUE')
         this.setState({
             placeInfo: {
                 ...this.state.placeInfo,
@@ -133,13 +131,11 @@ export default class EditGreenPlace extends React.Component {
     }
 
     render() {
-        console.log(this.state, 'YO YO YO')
         const { name, img_url, yelp_rating, location_str, location_city, location_zip, location_st, displayphone, category, review } = this.state.placeInfo;
 
         let checkingBoxes = [];
         for (let [key, value] of Object.entries(this.state)) {
             if (value === true) {
-                console.log('found it', key)
                 checkingBoxes.push((
                     <div key={`${key}`}>
                         <input className='input' type='checkbox' value={`${key}`} onChange={this.handleThumbChange} checked={this.state[`${key}`]} />

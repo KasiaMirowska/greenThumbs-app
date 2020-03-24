@@ -31,7 +31,6 @@ export default class ReviewForm extends React.Component {
 
     handleCategory = (e) => {
         e.preventDefault();
-        //console.log(e.target.value, 'CATEGORY')
         this.setState({
             category: e.target.value,
         })
@@ -63,7 +62,6 @@ export default class ReviewForm extends React.Component {
                 this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
             })
             .catch(err => {
-                console.log(err)
                 this.setState({
                     error: err
                 })

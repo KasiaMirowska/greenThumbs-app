@@ -16,5 +16,5 @@ export default function Thumbs(props) {
         );
     } else {
         return (<div className='thumbs'></div>);
-    }
+    };
 }

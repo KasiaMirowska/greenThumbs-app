@@ -76,7 +76,6 @@ export default class ReviewedList extends React.Component {
                 this.context.userSort(res);
             })
             .catch(err => {
-                console.log(err, 'ERRRRRRRRRRRRR')
                 this.setState({
                     error: err
                 });
@@ -109,7 +108,6 @@ export default class ReviewedList extends React.Component {
 
     render() {
         const { userSelection, citySelection, categorySelection } = this.context;
-        console.log(this.state.reviews, 'PLACES IN REVIEWD LIST STATE')
 
         return (
             <div className='big-container list'>

@@ -3,9 +3,7 @@ import config from '../config';
 
 const AuthCalls = {
     postLogin: (credentials) => {
-        console.log(credentials, config.API_ENDPOINT)
         const URL = config.API_ENDPOINT + '/login';
-        console.log(URL, JSON.stringify(credentials))
         return fetch(URL, {
             method: 'POST',
             headers: {
@@ -17,7 +15,6 @@ const AuthCalls = {
         if(!res.ok) {
             return res.json()
             .then(err => {
-                console.log(err)
                 throw new Error(err.error.message)
             })
         }
@@ -27,7 +24,6 @@ const AuthCalls = {
     },
 
     postNewUser: (user) => {
-        console.log(user, '????????')
         const URL = config.API_ENDPOINT + '/register';
         return fetch(URL, {
             method: 'POST',
@@ -40,7 +36,6 @@ const AuthCalls = {
             if(!res.ok) {
                 return res.json()
                 .then(err => {
-                    console.log(err);
                     throw new Error(err.error.message)
                 })
             }

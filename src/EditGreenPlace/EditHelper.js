@@ -24,7 +24,6 @@ const EditHelper = {
 changeThumbIntoNUM: (thumbs) => {
         let finalThumbList = [];
         thumbs.forEach(thumb => {
-           console.log(thumb)
             for(let [key,value] of Object.entries(thumbObjects)){
                 if(key === thumb) {
                     finalThumbList.push(value)

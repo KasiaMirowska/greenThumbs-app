@@ -22,11 +22,9 @@ export default class SmallForm extends React.Component {
         ProxyCalls.getThroughGreenThumbApi(term, location)
             .then(data => {
                 this.context.setList(data.businesses);
-                //console.log('DDDDDDDDDDDDDDDD',data,'data directly from db DDDDDDDDDDDDDDDDDDDDDDDDD')
                 this.props.history.push(`/list/${location}`);
             })
             .catch(err => {
-                console.log(err)
                 if(err) {
                     this.setState({
                         error: 'Server problems'
@@ -45,7 +43,6 @@ export default class SmallForm extends React.Component {
     }
     handleCategoryInput = e => {
         e.preventDefault();
-        console.log(e.target.value)
         this.setState({
             term: e.target.value
         });
