@@ -24,7 +24,7 @@ describe('List component', () => {
                 city: 'city2',
                 zip_code: '20222',
                 state: 'Ma',
-            }
+            },
             display_phone: '(123) 345 5678', 
             green_reviews_count: 3, 
             category: 'category', 
@@ -60,7 +60,7 @@ describe('List component', () => {
     });
 
     it('renders UI as expected', () => {
-        const item = renderer.create(<BR><GCP><ReviewForm {...props} /></GCP></BR>);
+        const item = renderer.create(<BR><GreenContext.Provider value={contextValue} ><ReviewForm {...props} /></GreenContext.Provider ></BR>);
         expect(item.toJSON()).toMatchSnapshot();
     })
 })

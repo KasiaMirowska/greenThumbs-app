@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List component renders UI as expected 1`] = `
-<ul>
-  <h2>
+<ul
+  className="list"
+>
+  <h2
+    className="list-header"
+  >
     PLACES IN : 
-    location
+    LOCATION
   </h2>
 </ul>
 `;

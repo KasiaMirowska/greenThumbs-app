@@ -3,8 +3,7 @@ import ReactDom from 'react-dom';
 import renderer from 'react-test-renderer';
 import { BrowserRouter as BR } from 'react-router-dom';
 import GreenPlace from './GreenPlace';
-import { GreenContextProvider as GCP } from '../Context';
-
+import GreenContext from '../Context';
 
 
 describe('List component', () => {
@@ -19,52 +18,50 @@ describe('List component', () => {
         }
     }
 
+    const contextValue = {
+        greenPlaces: [{
+            name: 'name1',
+            img: 'url',
+            url: 'url',
+            yelpId: 'a',
+            yelp_rating: 3,
+            location_str: 'street',
+            location_city: 'city',
+            location_zip: 'zip',
+            location_st: 'state',
+            display_phone: '(123) 345 5678',
+            category: 'category',
+            review: 'review',
+            checkedThumb: [1,2,3],
+        },
+        {
+            name: 'name2',
+            img: 'url',
+            url: 'url',
+            yelpId: 'b',
+            yelp_rating: 3,
+            location_str: 'street',
+            location_city: 'city',
+            location_zip: 'zip',
+            location_st: 'state',
+            display_phone: '(123) 345 5678',
+            category: 'category',
+            review: 'review',
+            checkedThumb: [1,2,5],
+        }],
+        
+    }
+
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDom.render(<BR><GCP value={{
-
-                greenPlaces: [{
-                name: 'name1',
-                img: 'url',
-                url: 'url',
-                yelpId: 'a',
-                yelp_rating: 3,
-                location_str: 'street',
-                location_city: 'city',
-                location_zip: 'zip',
-                location_st: 'state',
-                display_phone: '(123) 345 5678',
-                green_reviews_count: 3,
-                category: 'category',
-                review: 'review',
-            },
-            {
-                name: 'name2',
-                img: 'url',
-                url: 'url',
-                yelpId: 'b',
-                yelp_rating: 3,
-                location_str: 'street',
-                location_city: 'city',
-                location_zip: 'zip',
-                location_st: 'state',
-                display_phone: '(123) 345 5678',
-                green_reviews_count: 3,
-                category: 'category',
-                review: 'review',
-            }
-            ]}}
-        }}><GreenPlace {...props} /></GCP></BR>, div);
+        ReactDom.render(<BR><GreenContext.Provider value={contextValue} ><GreenPlace {...props} /></GreenContext.Provider ></BR>, div);
         ReactDom.unmountComponentAtNode(div);
     });
 
     it('renders UI as expected', () => {
-        const item = renderer.create(<BR><GCP><GreenPlace {...props} /></GCP></BR>);
+        const item = renderer.create(<BR><GreenContext.Provider value={contextValue} ><GreenPlace {...props} /></GreenContext.Provider ></BR>);
         expect(item.toJSON()).toMatchSnapshot();
     })
 })
-
-
-
 
 

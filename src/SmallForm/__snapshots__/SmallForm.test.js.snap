@@ -4,6 +4,9 @@ exports[`SmallForm component renders UI as expected 1`] = `
 <div
   className="small-form"
 >
+  <div
+    className="error"
+  />
   <form
     className="form"
     onSubmit={[Function]}

@@ -1,28 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List component renders UI as expected 1`] = `
-<div>
-  <h1>
-    LOGIN
-  </h1>
+<div
+  className="auth"
+>
+  <div
+    id="auth"
+  >
+    <h1>
+      LOGIN 
+    </h1>
+    <div
+      className="error"
+    />
+  </div>
   <div>
     <form
+      className="auth-form"
       onSubmit={[Function]}
     >
       <input
+        className="form__field form__field3"
         id="username"
+        onClick={[Function]}
         placeholder="username"
+        required={true}
         type="input"
       />
+      <br />
       <input
+        className="form__field form__field3"
         id="password"
+        onClick={[Function]}
         placeholder="password"
+        required={true}
         type="password"
       />
       <button
         type="submit"
       >
         Submit
+      </button>
+      <button
+        className="login-button"
+        type="reset"
+      >
+        Cancel
       </button>
     </form>
   </div>

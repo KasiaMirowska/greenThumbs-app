@@ -98,7 +98,7 @@ export default withRouter(class GreenPlace extends React.Component {
                         </div>
                         <div className='rating-box'>
                             <p>GREENthumbsUP rating: </p>
-                            <Thumbs rating={checkedThumbs} />
+                            <Thumbs checkedThumbs={checkedThumbs} />
                         </div>
                         <br />
                         <br />

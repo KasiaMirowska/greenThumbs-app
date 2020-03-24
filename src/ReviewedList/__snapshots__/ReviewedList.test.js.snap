@@ -2,7 +2,7 @@
 
 exports[`List component renders UI as expected 1`] = `
 <div
-  className="big-container"
+  className="big-container list"
 >
   <div
     className="smaller-header"
@@ -17,6 +17,9 @@ exports[`List component renders UI as expected 1`] = `
       UP reviewed places: 
     </h2>
   </div>
+  <div
+    className="error"
+  />
   <div
     className="mid-container"
   >

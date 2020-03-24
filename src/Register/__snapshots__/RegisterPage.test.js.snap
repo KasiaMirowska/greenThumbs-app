@@ -1,38 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List component renders UI as expected 1`] = `
-<div>
-  <h2>
-    REGISTER
-  </h2>
+<div
+  className="auth"
+>
+  <div
+    id="auth"
+  >
+    <h1>
+      REGISTER 
+    </h1>
+    <div
+      className="error"
+    />
+  </div>
   <div>
     <div>
       <form
+        className="auth-form"
         onSubmit={[Function]}
       >
-        <label
-          htmlFor="fullname"
-        >
-          First and Last Name
-        </label>
         <input
+          className="form__field form__field3"
           id="fullname"
+          onClick={[Function]}
           placeholder="fullname"
           type="input"
         />
         <br />
-        <label
-          htmlFor="login-credentials"
-        >
-          Create your username and password
-        </label>
         <input
+          className="form__field form__field3"
           id="username"
+          onClick={[Function]}
           placeholder="username"
           type="input"
         />
+        <br />
         <input
+          className="form__field form__field3"
           id="password"
+          onClick={[Function]}
           placeholder="password"
           type="password"
         />
@@ -40,6 +47,13 @@ exports[`List component renders UI as expected 1`] = `
           type="submit"
         >
           Submit
+        </button>
+        <button
+          className="login-button"
+          onClick={[Function]}
+          type="reset"
+        >
+          Cancel
         </button>
       </form>
     </div>

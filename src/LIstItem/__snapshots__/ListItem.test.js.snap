@@ -4,49 +4,79 @@ exports[`List component renders UI as expected 1`] = `
 <div
   className="list-item"
 >
-  <li>
-    <h2>
-      name
-    </h2>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      
-    </p>
-    <p>
-      phne
-    </p>
-    <p>
-      price
-    </p>
+  <div
+    className="img-container"
+  >
     <img
-      src="link"
+      alt="food presentation from the place"
     />
-    <a
-      href="link"
-      rel="noopener noreferrer"
-      target="_blank"
+  </div>
+  <li
+    className="li"
+  >
+    <div
+      className="text-area"
     >
       <h2>
-        Visit
+        name
       </h2>
-    </a>
-    1
-    <a
-      href="/login"
-      onClick={[Function]}
+      <p>
+        
+        , 
+        
+         
+      </p>
+      <p>
+        
+         
+        
+      </p>
+      <br />
+      <p>
+        phne
+      </p>
+      <p>
+        Price-range: 
+        price
+      </p>
+      <a
+        href="link"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <h2>
+          Visit
+        </h2>
+      </a>
+      <div
+        className="rating-box"
+      >
+        <p>
+          Yelp rating: 
+        </p>
+        <div
+          className="starsImg"
+        >
+          <img
+            alt="yelp star"
+            className="starsImg"
+            src="1.png"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="button-container2"
     >
-      <button>
+      <button
+        className="review-button"
+        onClick={[Function]}
+      >
         Create ThumbsUP review
       </button>
-    </a>
+    </div>
   </li>
+  <br />
+  <br />
 </div>
 `;

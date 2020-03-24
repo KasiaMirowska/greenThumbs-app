@@ -8,7 +8,7 @@ describe('List component', () => {
     const props = {
         id: 1,
         name: 'name',
-        location: {address1: '', city: '', state: '', zip_code: ''},
+        itemLocation: {address1: '', city: '', state: '', zip_code: ''},
         phone: 'phne',
         price: 'price',
         img: 'link',

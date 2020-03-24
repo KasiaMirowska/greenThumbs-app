@@ -1,32 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List component renders UI as expected 1`] = `
-<div>
-  <img />
-  <h2 />
-  <p />
-  <p />
-  <p />
-  <p />
-  <p />
-  <p />
-  <a
-    href="undefined"
+<div
+  className="item"
+>
+  <div
+    className="items-box"
   >
-    <h2>
-      Visit
-    </h2>
-  </a>
-  <p>
-    Yelp rating:
-  </p>
+    <div
+      className="medium-img-container"
+    >
+      <img
+        alt="food presentation from the place"
+      />
+    </div>
+    <div
+      className="text-area1"
+    >
+      <h2 />
+      <p>
+        , 
+      </p>
+      <p>
+         
+      </p>
+      <br />
+      <p />
+      <br />
+      <p>
+        Saved in category: 
+      </p>
+      <br />
+      <br />
+      <div
+        className="rating-box"
+      >
+        <p>
+          Yelp rating: 
+        </p>
+        <div
+          className="starsImg"
+        />
+      </div>
+    </div>
+  </div>
   <br />
   <form
+    className="edit-form"
     onSubmit={[Function]}
   >
-    <h3>
-      Reward worthy habits!:
-    </h3>
+    <h2>
+      Noted for following reward worthy habits:
+    </h2>
+    <br />
     <div>
       <input
         checked={false}
@@ -39,7 +65,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         No single use plastic
-        //////not checked
       </label>
       <br />
     </div>
@@ -55,7 +80,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Compostable take-out containers and cups
-        //////not checked
       </label>
       <br />
     </div>
@@ -71,7 +95,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         No plastic bottled drinks
-        //////not checked
       </label>
       <br />
     </div>
@@ -87,7 +110,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Composting food scraps
-        //////not checked
       </label>
       <br />
     </div>
@@ -103,7 +125,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Recycle and compost bins inside
-        //////not checked
       </label>
       <br />
     </div>
@@ -119,7 +140,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Hemp based or fabric napkins and paper towels
-        //////not checked
       </label>
       <br />
     </div>
@@ -135,7 +155,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Papperless, fully computer based billing and record keeping
-        //////not checked
       </label>
       <br />
     </div>
@@ -151,7 +170,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Donating leftover food to local shelter or "free meal night"
-        //////not checked
       </label>
       <br />
     </div>
@@ -167,7 +185,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Locally sourced produce
-        //////not checked
       </label>
       <br />
     </div>
@@ -183,7 +200,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Organic produce
-        //////not checked
       </label>
       <br />
     </div>
@@ -199,7 +215,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Resposible frying oil disposal
-        //////not checked
       </label>
       <br />
     </div>
@@ -215,7 +230,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Saves energy by installing light timers and motion sensors
-        //////not checked
       </label>
       <br />
     </div>
@@ -231,7 +245,6 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Saves water by installing low flow faucets
-        //////not checked
       </label>
       <br />
     </div>
@@ -247,14 +260,26 @@ exports[`List component renders UI as expected 1`] = `
         htmlFor="chx1"
       >
         Saves energy and water by installing energy star equipmnet
-        //////not checked
       </label>
       <br />
     </div>
-    <h2>
+    <br />
+    <br />
+    <h3>
+      Additional comments
+    </h3>
+    <textarea
+      cols="50"
+      onChange={[Function]}
+      rows="10"
+    />
+    <h3
+      id="select-header"
+    >
       Save in category: 
-    </h2>
+    </h3>
     <select
+      className="form__field2"
       onChange={[Function]}
       required={true}
     >
@@ -300,11 +325,23 @@ exports[`List component renders UI as expected 1`] = `
       </option>
     </select>
     <br />
-    <button
-      type="submit"
+    <div
+      className="error"
+    />
+    <div
+      className="button-container2"
     >
-      Update Review
-    </button>
+      <button
+        type="submit"
+      >
+        Update Review
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Back
+      </button>
+    </div>
   </form>
 </div>
 `;

@@ -2,14 +2,42 @@
 
 exports[`List component renders UI as expected 1`] = `
 <div
+  className="home-list"
   onClick={[Function]}
 >
-  <h3>
-    name
-  </h3>
-  <p>
-    city
-  </p>
-  <div />
+  <div
+    className="small-img-container"
+  >
+    <img
+      alt="food presentation from the place"
+    />
+  </div>
+  <div
+    className="text"
+  >
+    <h3>
+      name
+    </h3>
+    <br />
+    <div
+      className="text2"
+    >
+      <p>
+        city
+      </p>
+      <p>
+        Saved to category: 
+      </p>
+    </div>
+    <div
+      className="thumbs"
+    >
+      <div
+        className="thumbs"
+      >
+        <div />
+      </div>
+    </div>
+  </div>
 </div>
 `;
