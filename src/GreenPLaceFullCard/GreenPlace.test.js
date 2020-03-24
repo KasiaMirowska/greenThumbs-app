@@ -6,7 +6,7 @@ import GreenPlace from './GreenPlace';
 import GreenContext from '../Context';
 
 
-describe('List component', () => {
+describe('GreenPlace component', () => {
     
     const props = {
         history: { push: '/' },

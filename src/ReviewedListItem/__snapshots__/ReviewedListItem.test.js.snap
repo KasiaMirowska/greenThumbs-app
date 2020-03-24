@@ -29,15 +29,7 @@ exports[`List component renders UI as expected 1`] = `
         Saved to category: 
       </p>
     </div>
-    <div
-      className="thumbs"
-    >
-      <div
-        className="thumbs"
-      >
-        <div />
-      </div>
-    </div>
+    <div />
   </div>
 </div>
 `;
