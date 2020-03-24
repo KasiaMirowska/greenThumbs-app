@@ -2,7 +2,7 @@ import config from '../config';
 
 const ProxyCalls = {
     getThroughGreenThumbApi: (term, location) => {
-        const URL = `http://localhost:8000/yelp/` + `?` + `term=${term}` +'&'+ `location=${location}`;
+        const URL = `https://agile-bayou-12370.herokuapp.com/yelp/` + `?` + `term=${term}` +'&'+ `location=${location}`;
         
         return fetch(URL, {
             headers: {

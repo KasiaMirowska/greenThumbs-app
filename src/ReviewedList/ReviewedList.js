@@ -20,8 +20,8 @@ export default class ReviewedList extends React.Component {
 
     componentDidMount = () => {
             scroll.scrollToTop();
-    
-        if (TokenService.getAuthToken()) {
+        
+        if (TokenService.getAuthToken(config.TOKEN_KEY)) {
             GreenCalls.getAllGreenPlacesByUser()
             .then(res => {
                 this.context.setCurrentUser(res[0].userid);
@@ -61,7 +61,7 @@ export default class ReviewedList extends React.Component {
             .catch(err => {
                 if(err) {
                     this.setState({
-                        error: err.error.message,
+                        error: err.message,
                     });
                 }
                 
