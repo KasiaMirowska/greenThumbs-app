@@ -1,68 +1,369 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Green Thumb 
 
-## Available Scripts
+Check it out at [Green Thumb](https://green-thumbs-up.now.sh/).
 
-In the project directory, you can run:
+A place where you can create a positive impact on local restaurant industry. Search for a place to eat and let us know if that place adheres to enviroment friendly practices. Let's stand together for the Earth and influance business owners to take steps that will significatly lower their ecological footprint !
 
-### `npm start`
+## WHY MAKE THIS APP?
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+|<img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/home.png' width ='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pick.png' width ='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/flow-pose.png' width='200' > | <img src='https://images-for-portfolio.s3.us-east-2.amazonaws.com/yoga+cap/pose-card2.png' width='200' > |
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ENDPOINTS AND EXPECTED DATA
+### Yelp Proxy Endpoint
+#### /yelp/
 
-### `npm run build`
+  description: a proxy endpoint to Yelp.  This endpoint can be used without loggin into Green Thumb
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  method: GET
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  input: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    query: {
+      term: string,
+      location: string
+    }
 
-### `npm run eject`
+  output: 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    status: 201,
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    body: {
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+      rating: number,
+      price: symbol,
+      phone: string,
+      id: string,
+      alias: string,
+      is_closed: boolean,
+      categories": [
+        {
+          alias: string,
+          title: string
+        }
+      ],
+      review_count: number,
+      name: string,
+      url: string,
+      coordinates": {
+        latitude: number,
+        longitude: number
+      },
+      image_url: string,
+      location: {
+        city: string,
+        country: string,
+        address2: string,
+        address3: string,
+        state: string,
+        address1: string,
+        zip_code: string 
+      },
+      distance: number,
+      transactions: array of stigs
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    },
 
-## Learn More
+### User Registration
+#### /api/register
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  description: registration endpoint
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  method: POST
 
-### Code Splitting
+  input: 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+    body: {
 
-### Analyzing the Bundle Size
+      fullname: string,
+      username: string,
+      password: string,
+      id: number
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+    }
 
-### Making a Progressive Web App
+  output: 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+    status: 201,
 
-### Advanced Configuration
+    body: {
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+      fullname: string,
+      username: string,
+      password: encrypted, 
 
-### Deployment
+    }
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Auth Login Endpoint
+#### /api/login
 
-### `npm run build` fails to minify
+  description: user login endpoint
+  
+  method: POST
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  input:
+
+    body: {
+
+      userName: string, 
+      password: string
+
+    }
+
+  output:
+
+    body: {
+
+      authToken: jwt (javascript web token)
+
+    }
+
+### places Endpoints
+#### /api/
+
+  description: gets all green thumb reviewed places with full info
+
+  method: GET
+
+  output: 
+    
+    status: 200,
+
+    body: [
+
+      {
+
+        id: number,
+        yelp_id: number,
+        name: string,
+        img: string,
+        url: string,
+        yelpRating: number,
+        location_str: string,
+        location_city: string,
+        location_zip: string,
+        location_st: string,
+        display_phone: string,
+        green_reviews_count: number,
+        review: string,
+        reviewDate: Date
+        reviewCategory: string,
+        checkedThumbs, array of strings
+
+      }
+
+    ]
+
+#### /api/user/
+
+  description: gets green reviewed places by user with full info
+
+  method: GET
+
+  output: 
+  
+    status: 200,
+
+    body: [
+
+      {
+
+        id: number,
+        yelp_id: number,
+        name: string,
+        img: string,
+        url: string,
+        yelpRating: number,
+        location_str: string,
+        location_city: string,
+        location_zip: string,
+        location_st: string,
+        display_phone: string,
+        green_reviews_count: number,
+        review: string,
+        reviewDate: Date
+        reviewCategory: string,
+        checkedThumbs, array of strings
+
+      }
+
+    ]
+
+#### /api/place/:place_id
+
+  description: gets by id reviewed place with full info
+
+  method: GET
+
+  input: 
+
+    params: place_id: string
+
+  example output:
+
+    {
+      id: 1,
+      yelp_id: '5dyqBEBuwDgZ23iLQJjl0w',
+      name: 'restaurant name',
+      img_url: 'image url',
+      url: 'website url',
+      yelp_rating: 5,
+      location_str: 'street address',
+      location_city: 'city',
+      location_zip: 'zip code',
+      location_st: 'state',
+      display_phone: 'phone number',
+      green_reviews_count: 1,
+      userid: 1,
+      reviewed_place_id: 1,
+      review: 'string',
+      checkedThumbs: [
+        'Compostable take-out containers and cups',
+        'No plastic bottled drinks',
+        'Composting food scraps',
+        'Papperless, fully computer based billing and record keeping',
+        'Locally sourced produce',
+        'Organic produce',
+        'Saves energy by installing light timers and motion sensors',
+        'Saves water by installing low flow faucets',
+        'Saves energy and water by installing energy star equipmnet'
+      ],
+      category: 'Juice-Bar'
+    }
+
+### Reviews Endpoints
+#### /api/:place_id/review
+
+  description: creates green-reviewed place in db that consists of yelp-place-data recorded into 'place' table and review section recorded into 'review' and 'thumbChecked' tables
+
+  method: POST
+
+  input: 
+
+    params: yelpId: string
+
+    body: {
+      
+      yelp_id: string, 
+      name: string, 
+      img_url: string, 
+      url: string, 
+      yelp_rating: number, 
+      location_str: string, 
+      location_city: string, 
+      location_zip: string, 
+      location_st: string, 
+      display_phone: string, 
+      green_reviews_count: number, 
+      category: string, 
+      review: string, 
+      checkedThumbs: array of strings
+
+    }
+
+  example output:
+
+    {
+
+      savedPlace: {
+        id: 23,
+        yelp_id: string,
+        name: restaurant name,
+        img_url: 'image url',
+        url: 'website url',
+        yelp_rating: 4,
+        location_str: 'street address',
+        location_city: 'city',
+        location_zip: 'zip code',
+        location_st: 'state',
+        display_phone: 'phone number',
+        green_reviews_count: 1,
+      },
+      savedReview: {
+        id: 81,
+        userid: 1,
+        place_category: 'Lunch',
+        review: 'string',
+        date: 2020-03-24T00:46:31.534Z,
+        place_id: 23
+      },
+      newSavedThumbs: [ 10, 9, 7, 5, 4 ]
+
+    }
+
+#### /api/edit/:green_place_id
+
+  description: updates a reviewed place
+
+  method: PATCH
+
+  input: 
+
+    params: green_place_id: string
+
+    body: {
+      
+      category: string, 
+      review: string, 
+      checkedThumbs: array of strings
+
+    }
+
+  example output:
+
+    status: 201
+
+    body: {
+      savedReview: {
+        id: 85,
+      userid: 1,
+      place_category: 'Bakery',
+      review: 'string',
+      date: 2020-03-24T00:53:10.047Z,
+      place_id: 24
+      },
+      updatedThumbs: [ 3, 4, 11 ]
+    }
+
+#### /api/place/delete/:green_place_id
+
+  description: deletes an existing review
+
+  method: DELETE
+
+  input: 
+
+    params: green_place_id: string
+
+  example output:
+
+    status: 204
+
+    message: 'reviewed place deleted'
+
+
+## TECH STACK
+#### FRONT-END
+* HTML5
+* CSS3
+* JavaScript
+* React.js front end framework
+* font-awesome
+* bcrypt
+
+#### BACK-END
+* Node.js backend run-time environment
+* Express.js backend framework and architecture
+* SQL for database
+* Postgres - relational database management system
+* Yelp API
+* JWTs for authentication
+* Axios - Promise based HTTP Client
+
+#### TESTING and DEPOLYMENT
+* Mocha - back-end testing framework
+* Chai - assertion library backend testing
+* Enzyme - React.js testing utility
+* Zeit - cloud platform for static sites
+* Heroku - cloud application platform
