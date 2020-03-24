@@ -5,6 +5,7 @@ import GreenCalls from '../Services/GreenCalls';
 import ListHelpers from './ListHelpers';
 import TokenService from '../Services/token-service';
 import { config } from '@fortawesome/fontawesome-svg-core';
+import { animateScroll as scroll } from 'react-scroll'
 
 export default class ReviewedList extends React.Component {
     static contextType = GreenContext;
@@ -18,6 +19,8 @@ export default class ReviewedList extends React.Component {
     }
 
     componentDidMount = () => {
+            scroll.scrollToTop();
+    
         if (TokenService.getAuthToken()) {
             GreenCalls.getAllGreenPlacesByUser()
             .then(res => {

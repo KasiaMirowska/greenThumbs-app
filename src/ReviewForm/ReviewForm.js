@@ -60,7 +60,6 @@ export default class ReviewForm extends React.Component {
 
         GreenCalls.postNewReview(this.props.match.params.id, newReviewedPlace)
             .then(data => {
-                console.log(data, 'SAVED????', data, newReviewedPlace)
                 this.props.history.push(`/reviews/${newReviewedPlace.location_city}`)
             })
             .catch(err => {
@@ -76,10 +75,9 @@ export default class ReviewForm extends React.Component {
     }
 
     render() {
-        console.log(this.state.error, 'kkkkkkkk')
         const id = this.props.match.params.id;
         const currentPlace = this.context.list.find(item => item.id === id)
-        //console.log(id, this.context.list, 'CCCCCCCCCCCCCCCC', currentPlace)
+        
         return (
             <div className='item'>
                 <div className='img-container'>
